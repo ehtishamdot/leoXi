@@ -1,0 +1,68 @@
+.burger {
+  margin-left: 5rem;
+  cursor: pointer;
+  &__line {
+    width: 2.9rem;
+    height: 0.3rem;
+    background-color: var(--white);
+    margin: 1rem 0;
+  }
+}
+
+.nav__items {
+  @include flex-placeholder(space-between, center, row);
+  width: 50rem;
+  margin-left: 4rem;
+  box-shadow: var(--box-shadow-primary);
+
+  &--item {
+    font-size: 1.7rem;
+    font-weight: 700;
+    a {
+      color: var(--light-background);
+    }
+    &:hover {
+      border-bottom: 0.2rem solid var(--color-grad-1);
+    }
+  }
+}
+
+//   ---------- SIDE NAV BAR -------------
+.nav__sidebar {
+  position: fixed;
+  z-index: 10;
+  transition: opacity 1s ease-in-out, width 1s ease-in-out;
+  //   width: 0;
+  //   opacity: 0.2;
+  height: 100vh;
+  color: var(--normal-text);
+  background-color: var(--color-grad-2);
+  opacity: 0.9;
+  box-shadow: var(--box-shadow-primary);
+}
+
+.sidebar__items {
+  height: 100vh;
+  @include flex-placeholder(flex-start, flex-start, column);
+  width: 100%;
+  padding: 0 2rem;
+
+  &--link {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: capitalize;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+    transition: color 2s ease-in-out;
+  }
+  &--heading {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 0.3rem;
+    margin-top: 2rem;
+  }
+}

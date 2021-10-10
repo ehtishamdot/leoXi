@@ -1,0 +1,54 @@
+/**
+ * Basic typography style for copy text
+ */
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+//main heading
+.u-heading {
+  font-size: 3rem;
+  line-height: 1.4 !important;
+  color: var(--heading);
+  font-family: var(--heading-font);
+  font-weight: 500;
+}
+
+//main-bottom heading
+.u-heading--secondary {
+  font-size: 2.1rem !important;
+  line-height: 1.2 !important;
+  color: var(--color-grad-3);
+  font-family: var(--heading-font);
+  font-weight: 500;
+}
+
+//main-bottom--bottom heading
+.u-heading--tertiary {
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+  font-weight: 500;
+  color: var(--heading);
+  font-family: var(--heading-font);
+}
+
+// MAIN DISPLAY HEADINGS
+
+.m-heading--secondary {
+  font-size: 1.5rem !important;
+  line-height: 1 !important;
+  font-weight: 500;
+  color: var(--color-grad-2);
+  font-family: var(--heading-font);
+}
+
+//paragraph
+.paragraph {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
