@@ -1,3 +1,29 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+
+.main {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+}
+
+.dashboard {
+  display: flex;
+}
+
+.dashboard__users {
+  width: 35rem;
+  height: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 80rem;
+}
+
+.dashboard__updates {
+  width: 100%;
+}

@@ -5,25 +5,31 @@
 //Colors
 :root {
   --white: #fff;
-  --light-background: #f3f8f9;
-  --light-lines: #eef1f2;
-  --light-text-placeholder: #d8eef3;
+  --black: black;
+  --light-background: #f3f4f9;
+  --dark-background: #282b3a;
+  --very-dark--background: #202436;
+  --light-lines: #e5edf0;
+  --light-header: rgba(255, 255, 255, 0.3);
   --normal-text: #615551;
   --lighter-text: #918581;
-  --heading: #060221;
-  --color-primary: linear-gradient(270deg, #00e0ff 0.13%, #00a3ff 100.59%);
-  --color-grad-1: #00e0ff;
-  --color-grad-2: #00a3ff;
-  --color-grad-3: #0b6092;
+  --color-primary: linear-gradient(270deg, #31c461 0.13%, #31c461 100.59%);
+  --band-color: #31c461;
 
   //shadows transitions
   --box-shadow-primary: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --box-shadow-allrounder: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
+    0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+    0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
   --transition-small: all 0.3s;
 }
 
 $color-primary: #f38e82;
-$color-grad-1: #fbdb89;
-$color-grad-2: #f48982;
+$color-grad-1: #c6fb89;
+$color-grad-2: #d6f482;
+$red: #dc3545;
+$yellow: #f7b924;
+$green: #28a745;
 
 $color-grey-light-1: #f9f5f3; // Light background
 $color-grey-light-2: #f2efee; // Light lines

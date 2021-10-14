@@ -4,7 +4,295 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- --- FONTS --- -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- --- SCSS ---  -->
+    <link rel="stylesheet" href="./src/sass/main.scss" />
+    <!-- --- ICONS --- -->
+
     <title></title>
   </head>
-  <body></body>
+  <body>
+    <!-- <div class="burger">
+      <div class="burger__line burger__line1"></div>
+      <div class="burger__line burger__line2"></div>
+      <div class="burger__line burger__line3"></div>
+    </div> -->
+    <!-- MAIN START  -->
+    <main class="main">
+      <!-- CONTENT START -->
+      <content class="content">
+        <!-- NAVIGATION -->
+        <nav class="nav-top">
+          <ul class="nav__items">
+            <!-- ITEM 1 -->
+            <li class="nav__items--item">
+              <!-- LOGIN BTN -->
+              <button class="btn btn-login btn--small--green">
+                <svg
+                  viewBox="0 0 24 24"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                  style="pointer-events: none"
+                  class="login-icon"
+                >
+                  <g class="style-scope">
+                    <path
+                      d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,3c4.96,0,9,4.04,9,9 c0,1.42-0.34,2.76-0.93,3.96c-1.53-1.72-3.98-2.89-7.38-3.03C14.57,12.6,16,10.97,16,9c0-2.21-1.79-4-4-4C9.79,5,8,6.79,8,9 c0,1.97,1.43,3.6,3.31,3.93c-3.4,0.14-5.85,1.31-7.38,3.03C3.34,14.76,3,13.42,3,12C3,7.04,7.04,3,12,3z M9,9c0-1.65,1.35-3,3-3 s3,1.35,3,3c0,1.65-1.35,3-3,3S9,10.65,9,9z M12,21c-3.16,0-5.94-1.64-7.55-4.12C6.01,14.93,8.61,13.9,12,13.9 c3.39,0,5.99,1.03,7.55,2.98C17.94,19.36,15.16,21,12,21z"
+                      class="style-scope yt-icon"
+                    ></path>
+                  </g>
+                </svg>
+                <span>Log In</span>
+              </button>
+
+              <!-- LOGOUT BTN -->
+              <button class="btn btn-logout btn--small--green hidden">
+                <svg
+                  viewBox="0 0 24 24"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                  style="pointer-events: none"
+                  class="login-icon"
+                >
+                  <g class="style-scope">
+                    <path
+                      d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,3c4.96,0,9,4.04,9,9 c0,1.42-0.34,2.76-0.93,3.96c-1.53-1.72-3.98-2.89-7.38-3.03C14.57,12.6,16,10.97,16,9c0-2.21-1.79-4-4-4C9.79,5,8,6.79,8,9 c0,1.97,1.43,3.6,3.31,3.93c-3.4,0.14-5.85,1.31-7.38,3.03C3.34,14.76,3,13.42,3,12C3,7.04,7.04,3,12,3z M9,9c0-1.65,1.35-3,3-3 s3,1.35,3,3c0,1.65-1.35,3-3,3S9,10.65,9,9z M12,21c-3.16,0-5.94-1.64-7.55-4.12C6.01,14.93,8.61,13.9,12,13.9 c3.39,0,5.99,1.03,7.55,2.98C17.94,19.36,15.16,21,12,21z"
+                      class="style-scope yt-icon"
+                    ></path>
+                  </g>
+                </svg>
+                <span>Log Out</span>
+              </button>
+            </li>
+            <!-- ITEM 1 END -->
+
+            <!-- ITEM 2 -->
+            <li class="nav__items--item">
+              <!-- <img style="width: 8rem" src="/src/icons/icon.png" alt="logo" /> -->
+            </li>
+            <!-- ITEM 2 END -->
+
+            <!-- ITEM 3 -->
+            <li class="nav__items--item">
+              <!-- status -->
+              <ul class="status hidden">
+                <img
+                  src="/src/img/profile.jpg"
+                  alt="profile"
+                  class="status__profile"
+                />
+                <div class="status__score status__score--green">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </ul>
+
+              <ul class="status__signup btn-signup">
+                <span>Sign Up to get Started</span>
+              </ul>
+            </li>
+            <!-- ITEM 3 END -->
+          </ul>
+        </nav>
+        <!-- NAVIGATION END -->'
+
+        <div class="dashboard">
+          <!-- USERS INTERACTION AREA -->
+          <div class="dashboard__users">
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+            <!-- PREVIEW USER START -->
+            <li class="preview">
+              <a class="preview__link" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/profile.jpg" alt="Test" />
+                </figure>
+
+                <div class="status__score status__score--white">
+                  <span style="margin-right: 0.5rem">COINS</span>
+                  <span class="status__points">12.5</span>
+                </div>
+              </a>
+            </li>
+            <!--PREVIEW USER END -->
+          </div>
+          <!-- USERS INTERACTION AREA END -->
+
+          <!-- LIVE UPDATES -->
+          <div class="dashboard__updates">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Counts</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0" class="table">
+                <tbody>
+                  <!-- HISTORY ITEM -->
+                  <tr>
+                    <td class="table__id">AAC</td>
+                    <td>
+                      <!-- WIDGET  -->
+                      <div class="widget">
+                        <!-- WIDGET PROFILE IMAGE  -->
+                        <div class="widget__left">
+                          <img
+                            width="40"
+                            class="rounded-circle"
+                            src="/src/img/profile.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <!-- WIDGET PROFILE IMAGE END -->
+
+                        <!-- WIDGET DATA  -->
+                        <div class="widget__right">
+                          <div class="widget-heading">John Doe</div>
+                        </div>
+                        <!-- WIDGET DATA  -->
+                      </div>
+                      <!-- WIDGET END -->
+                    </td>
+
+                    <!-- COINS COUNT -->
+                    <td><span class="table__coins--count">4.5 </span> COINS</td>
+                    <!-- COINS COUNT END -->
+
+                    <!-- STATUS-->
+                    <td>
+                      <div class="table__status--pending">Pending</div>
+                    </td>
+                    <!-- STATUS END -->
+
+                    <!-- TABLE BTNS  -->
+                    <td class="full-flex table__btns">
+                      <button
+                        class="btn--small btn--small--green"
+                        style="margin-right: 1rem"
+                      >
+                        Accept
+                      </button>
+                      <button class="btn--small btn--small--red">Reject</button>
+                    </td>
+                    <!-- TABLE BTNS END -->
+                  </tr>
+                  <!-- HISTORY ITEME END-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- LIVE UPDATES END-->
+        </div>
+      </content>
+      <!-- CONTENT END -->
+
+      <!-- SIDE BAR NAV  -->
+      <nav class="nav__sidebar">
+        <ul class="sidebar__items u-margin-bottom-medium">
+          <!-- LOGO -->
+          <img
+            class="sidebar__items--icon u-margin-bottom-small"
+            src="/src/icons/icon-white.png"
+            alt=""
+          />
+
+          <span class="sidebar__items--heading u-margin-bottom-small"
+            >Jump to</span
+          >
+          <a href="#" class="sidebar__items--link">History</a>
+          <a href="#" class="sidebar__items--link">Assets</a>
+          <a href="#" class="sidebar__items--link">Trade</a>
+          <a href="#" class="sidebar__items--link">Notifications</a>
+          <a href="#" class="sidebar__items--link">Bookmarks</a>
+          <a href="#" class="sidebar__items--link">Top Users</a>
+          <a href="#section--5" class="sidebar__items--link"> Contact Me</a>
+          <!-- // BREADK THE LINE // -->
+        </ul>
+        <hr class="hr-default" />
+      </nav>
+      <!-- SIDE BAR NAV  END -->
+    </main>
+
+    <script type="module" src="/src/js/controller.js"></script>
+  </body>
 </html>

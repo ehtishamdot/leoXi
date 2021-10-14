@@ -5,12 +5,13 @@
 //Fonts
 :root {
   /// Regular font family
+  --default: "Be Vietnam", sans-serif !important;
   --text-font-stack: "Open Sans", "Helvetica Neue Light", "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+    "Helvetica", "Arial", sans-serif !important;
 
   /// Code (monospace) font family
   --code-font-stack: "Courier New", "DejaVu Sans Mono",
-    "Bitstream Vera Sans Mono", "Monaco", monospace;
+    "Bitstream Vera Sans Mono", "Monaco", monospace !important;
 
-  --heading-font: "Poppins", sans-serif;
+  --heading-font: "Poppins", sans-serif !important;
 }

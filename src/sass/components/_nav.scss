@@ -1,3 +1,4 @@
+// ________BURGER__________
 .burger {
   margin-left: 5rem;
   cursor: pointer;
@@ -9,60 +10,50 @@
   }
 }
 
-.nav__items {
-  @include flex-placeholder(space-between, center, row);
-  width: 50rem;
-  margin-left: 4rem;
-  box-shadow: var(--box-shadow-primary);
-
-  &--item {
-    font-size: 1.7rem;
-    font-weight: 700;
-    a {
-      color: var(--light-background);
-    }
-    &:hover {
-      border-bottom: 0.2rem solid var(--color-grad-1);
-    }
-  }
-}
-
-//   ---------- SIDE NAV BAR -------------
+//   ---------- SIDEBAR NAV BAR -------------
 .nav__sidebar {
-  position: fixed;
   z-index: 10;
-  transition: opacity 1s ease-in-out, width 1s ease-in-out;
-  //   width: 0;
-  //   opacity: 0.2;
-  height: 100vh;
   color: var(--normal-text);
-  background-color: var(--color-grad-2);
-  opacity: 0.9;
   box-shadow: var(--box-shadow-primary);
+  background-color: var(--dark-background);
+  font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system,
+    system-ui, sans-serif;
 }
 
 .sidebar__items {
-  height: 100vh;
-  @include flex-placeholder(flex-start, flex-start, column);
-  width: 100%;
-  padding: 0 2rem;
+  padding: 0 4rem 0 2rem;
 
+  @include flex-placeholder(flex-start, flex-start, row);
+  flex-direction: column;
+  width: 100%;
+  margin-top: 7rem;
+
+  &--btn {
+    margin: 10rem 4rem 0 4rem;
+  }
+
+  &--icon {
+    width: 8rem;
+  }
   &--link {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.4rem;
     color: var(--white);
     text-transform: capitalize;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.06rem;
     white-space: nowrap;
-    transition: color 2s ease-in-out;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    vertical-align: baseline;
+    text-decoration: none;
+    outline: none;
   }
   &--heading {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: lighter;
     white-space: nowrap;
     text-transform: uppercase;
     color: var(--white);
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.7rem;
     margin-top: 2rem;
   }
 }
