@@ -1,4 +1,9 @@
 .preview {
+  @include respond(low-phone) {
+    width: 100%;
+    @include flex-placeholder(center, center, row);
+    padding: 1rem 0;
+  }
   &__link {
     &:link,
     &:visited {
@@ -8,6 +13,17 @@
       transition: all 0.3s;
       border-right: 1px solid #fff;
       text-decoration: none;
+
+      @include respond(phone) {
+        @include flex-placeholder(center, center, column);
+      }
+
+      @include respond(low-phone) {
+        // border-right: unset;F
+        // border-bottom: 1px solid #fff;
+        width: 100%;
+        @include flex-placeholder(center, center, row);
+      }
     }
 
     &:hover {
@@ -28,6 +44,15 @@
     margin-right: 2rem;
     position: relative;
     backface-visibility: hidden;
+
+    @include respond(phone) {
+      margin-bottom: 2rem;
+      margin-right: unset;
+    }
+    @include respond(low-phone) {
+      margin-right: 2rem;
+      margin-bottom: unset;
+    }
 
     &::before {
       content: "";

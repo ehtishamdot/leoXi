@@ -6,7 +6,7 @@ class Signup {
   }
 
   addHandlerLogin(handler) {
-    this.#parentEl.addEventListener("click", handler);
+    this._parentEl.addEventListener("click", handler);
   }
 }
 

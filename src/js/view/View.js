@@ -1,12 +1,15 @@
 export class View {
-  render() {
+  _userInfo;
+
+  render(data) {
+    this._userInfo = data;
     this._renderMarkup();
   }
 
   _renderMarkup() {
     const html = this._generateMarkup();
     this.renderClear();
-    this._parentEl.insertAdjacentHTML("afterbegin", html);
+    this._parentEl.insertAdjacentHTML("beforeend", html);
   }
 
   _generateMarkup() {}

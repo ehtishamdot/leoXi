@@ -1,6 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  getDocs,
+} from "firebase/firestore";
 
+import firebase from "firebase/app";
+import "firebase/database";
 //For auth
 import {
   getAuth,
@@ -9,7 +19,19 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import {
+  getDatabase,
+  orderByChild,
+  ref,
+  equalTo,
+  Database,
+  set,
+  child,
+  update,
+  push,
+  remove,
+  get
+} from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBKayAlMLGl1ZGSDeQS5ctYu4WZLTp4xoo",
@@ -27,6 +49,9 @@ const analytics = getAnalytics(app);
 
 // Initialize Auth
 const auth = getAuth();
+
+// Initialize Database
+const db = getFirestore();
 const database = getDatabase();
 
 // Initialize Google Auth Provider
@@ -39,4 +64,25 @@ export {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  db,
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  getDocs,
+  ref,
+  set,
+  child,
+  update,
+  push,
+  remove,
+  get
+};
+
+const a = async () => {
+  const querySnapshot2 = await getDocs(collection(db, "notifications"));
+
+  querySnapshot2.forEach((doc) => {
+    console.log(doc.data());
+  });
 };

@@ -10,6 +10,9 @@
 
   &__left {
     margin-right: 1rem;
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
 
@@ -24,6 +27,16 @@
     text-transform: uppercase;
     padding: 0.5rem 1rem;
     background-color: $yellow;
+    width: 7rem;
+    @include respond(phone) {
+      width: 7rem;
+    }
+  }
+
+  &__btns {
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
   }
 
   &__status--rejected {
@@ -31,6 +44,10 @@
     text-transform: uppercase;
     padding: 0.5rem 1rem;
     background-color: $red;
+    width: 8rem;
+    @include respond(phone) {
+      width: 8rem;
+    }
   }
 
   &__status--accepted {
@@ -38,11 +55,19 @@
     text-transform: uppercase;
     padding: 0.5rem 1rem;
     background-color: $green;
+    width: 9rem;
+    @include respond(phone) {
+      width: 9rem;
+    }
   }
 }
 
 .dashboard__updates {
   padding: 0rem 2rem 1rem 2rem;
+
+  @include respond(phone) {
+    padding: unset;
+  }
 }
 
 .card {
@@ -81,6 +106,10 @@ th {
   font-size: 1.4rem;
   color: #fff;
   text-transform: uppercase;
+
+  @include respond(phone) {
+    font-size: 1rem;
+  }
 }
 td {
   padding: 15px;
@@ -96,8 +125,6 @@ td {
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body {
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
   font-family: "Roboto", sans-serif;
 }
 section {

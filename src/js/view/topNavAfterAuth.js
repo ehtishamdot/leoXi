@@ -7,10 +7,10 @@ class topNavAfterAuth extends View {
     return `
           <ul class="nav__items">
             <!-- ITEM 1 -->
-            <li class="nav__items--item">
+            <li class="top-btn nav__items--item">
     
               <!-- LOGOUT BTN -->
-              <button class="btn btn-logout btn--small--green hidden">
+              <button class="btn  btn-logout btn--small--green">
                 <svg
                   viewBox="0 0 24 24"
                   preserveAspectRatio="xMidYMid meet"
@@ -33,15 +33,20 @@ class topNavAfterAuth extends View {
             <!-- ITEM 3 -->
             <li class="nav__items--item">
               <!-- status -->
-              <ul class="status hidden">
+              <ul class="status">
+
                 <img
-                  src="/src/img/profile.jpg"
+                  src="${this._userInfo.imageURL}"
                   alt="profile"
                   class="status__profile"
+                  crossorigin="anonymous"
                 />
-                <div class="status__score status__score--green">
+                <div>
+                  <span  class ="status__username">${this._userInfo.name}</span>
+                  <div class="status__score status__score--green">
                   <span style="margin-right: 0.5rem">COINS</span>
-                  <span class="status__points">12.5</span>
+                  <span class="status__points">${this._userInfo.coins}</span>
+                  </div>
                 </div>
               </ul>
             </li>
@@ -51,7 +56,13 @@ class topNavAfterAuth extends View {
   }
 
   addHandlerLogin(handler) {
-    this._parentEl.addEventListener("click", handler);
+    this._parentEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".btn-login");
+      if (btn) {
+        console.log(e.target);
+        handler();
+      }
+    });
   }
 }
 

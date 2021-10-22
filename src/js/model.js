@@ -1,45 +1,30 @@
-import * as firebase from "../js/firebase/init";
+import { async } from "regenerator-runtime";
 
 //Default user Info
 export let userInfo = {
   displayInfo: {},
+  logStatus: false,
 };
 
+export let notifications = {};
+
 export const userInfoObject = (data) => {
+  console.log(data);
+  userInfo.displayInfo = {
+    id: data.id,
+    email: data.email,
+    name: data.name,
+    imageURL: data.imageURL,
+    coins: data.coins,
+  };
+};
+
+export const newUserInfoLogin = (data) => {
   userInfo.displayInfo = {
     id: data.uid,
     email: data.email,
     name: data.displayName,
-    image: data.photoURL,
+    imageURL: data.photoURL,
+    coins: 10,
   };
-};
-
-export const checkAuthStatus = () => {
-  firebase.onAuthStateChanged(firebase.auth, (user) => {
-    if (user) {
-      console.log(user);
-      userInfoObject(user);
-      console.log(userInfo);
-    }
-  });
-};
-
-export const logOutUser = () => {
-  firebase
-    .signOut()
-    .then(() => {})
-    .catch((err) => {
-      throw err;
-    });
-};
-
-export const googleLogin = () => {
-  firebase
-    .signInWithPopup(firebase.auth, firebase.provider)
-    .then((res) => {
-      userInfoObject(res.user);
-    })
-    .catch((err) => {
-      throw err;
-    });
 };

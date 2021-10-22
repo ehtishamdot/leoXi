@@ -2,6 +2,10 @@
 .burger {
   margin-left: 5rem;
   cursor: pointer;
+  position: fixed;
+  top: 2.5%;
+  right: 2%;
+  z-index: 200;
   &__line {
     width: 2.9rem;
     height: 0.3rem;
@@ -12,6 +16,10 @@
 
 //   ---------- SIDEBAR NAV BAR -------------
 .nav__sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
   z-index: 10;
   color: var(--normal-text);
   box-shadow: var(--box-shadow-primary);
@@ -55,5 +63,17 @@
     color: var(--white);
     letter-spacing: 0.7rem;
     margin-top: 2rem;
+  }
+}
+
+.side__btns {
+  width: 17rem;
+  height: 5rem;
+  margin: 4rem 4rem 0 2rem;
+}
+
+.top-btn {
+  @include respond(phone) {
+    display: none !important;
   }
 }

@@ -2,6 +2,11 @@
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
+body {
+  background: url(/src/img/coinbg.png) center center / cover;
+  transform: translateX(0%);
+}
+
 .main {
   display: flex;
 }
@@ -9,19 +14,40 @@
 .content {
   width: 100%;
   height: 100%;
-  background-color: var(--white);
 }
 
 .dashboard {
-  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @include flex-placeholder(center, flex-start, row);
+  @include respond(tab-port) {
+    @include flex-placeholder(center, center, column);
+  }
 }
 
 .dashboard__users {
   width: 35rem;
-  height: 100%;
-  height: 100%;
+  height: 70rem;
   background-color: rgba(255, 255, 255, 0.2);
-  height: 80rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  @include respond(tab-port) {
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    margin-left: unset;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(low-phone) {
+    @include flex-placeholder(center, center, column);
+  }
 }
 
 .dashboard__updates {

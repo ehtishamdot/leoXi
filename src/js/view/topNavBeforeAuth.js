@@ -7,9 +7,9 @@ class topNavBeforeAuth extends View {
     return `
           <ul class="nav__items">
             <!-- ITEM 1 -->
-            <li class="nav__items--item">
+            <li class="top-btn nav__items--item">
               <!-- LOGIN BTN -->
-              <button class="btn btn-login btn--small--green">
+              <button class="btn  btn-login btn--small--green">
                 <svg
                   viewBox="0 0 24 24"
                   preserveAspectRatio="xMidYMid meet"
@@ -41,7 +41,12 @@ class topNavBeforeAuth extends View {
   }
 
   addHandlerLogin(handler) {
-    this._parentEl.addEventListener("click", handler);
+    this._parentEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".btn-logout");
+      if (btn) {
+        handler();
+      }
+    });
   }
 }
 
