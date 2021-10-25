@@ -2,16 +2,24 @@ import { doc } from "@firebase/firestore";
 
 //burrons
 const navBtn = document.querySelector(".burger");
+const stat = document.querySelector(".stat-content");
 //divs
 const navburger = document.querySelector(".burger");
 const navigation = document.querySelector(".nav__sidebar");
 const navLinks = document.querySelectorAll(".sidebar__items--link");
-const overlayMinor = document.querySelector(".overlay");
+const overlayMinor = document.querySelector(".overlay-minor");
+const overlay = document.querySelector(".overlay");
+
 //toggles
 const linksContainer = document.querySelector(".sidebar__items");
-overlay = document.querySelector(".overlay");
 
 let counter = false;
+
+const navCharts = () => {
+  //priceChart
+  stat.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+};
 
 const navToggles = () => {
   //display navigation
@@ -26,15 +34,23 @@ const navToggles = () => {
   });
 
   if (navigation.classList.contains("hidden")) {
-    document.querySelector("body").style.overflow = "scroll";
+    document.querySelector("body").style.overflowY = "scroll";
   } else {
     navigation.style.overflowY = "scroll";
-    document.querySelector("body").style.overflow = "hidden";
+    document.querySelector("body").style.overflowY = "hidden";
   }
 };
 
 navBtn.addEventListener("click", () => {
   navToggles();
+});
+
+overlay.addEventListener("click", () => {
+  navCharts();
+});
+
+stat.addEventListener("click", () => {
+  navCharts();
 });
 
 //overlay

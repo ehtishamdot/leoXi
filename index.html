@@ -50,10 +50,66 @@
     </nav>
     <!-- SIDE BAR NAV  END -->
 
+    <!-- USER REQUEST OVERLAY -->
+    <!-- ///////////////// -->
+    <section class="request__overlay hidden">
+      <main class="card">
+        <i
+          data-visualcompletion="css-img"
+          class="cancel-btn"
+          style="
+            background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/KhfUjtpV2up.png?_nc_eui2=AeE4L0tsfOw8bXsVq4GxTAa8prKoiZDg9HemsqiJkOD0d_1O-MukB2jRH9s5drHzWyspqwOk_V39-0XDp3VNjnrl');
+            background-position: -105px -107px;
+            background-size: auto;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            display: inline-block;
+          "
+        ></i>
+        <div class="profile">
+          <img
+            src="/src/icons/bg-pattern-card.svg"
+            alt="Background"
+            class="profile__background"
+          />
+          <div class="profile__data">
+            <img class="profile__photo" alt="Photo of Victor Crest" />
+            <h1 class="profile__person">Loading..</h1>
+          </div>
+          <h1 class="profile__request">Enter the amount</h1>
+          <div class="number-of-people" style="border-color: rgb(38, 192, 171)">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
+            <form class="number-of-coins">
+              <input type="number" class="coins-count" placeholder="0" />
+            </form>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- ///////////////// -->
+
+    <!-- COINS STATUS -->
+    <!-- ///////////////// -->
+    <section class="stat-tile" id="work">
+      <div class="stat-content">
+        <div class="tile-header"><h2 class="tile-title">Current Price</h2></div>
+        <div class="tile-main">
+          <div class="time">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
+            1.2$
+          </div>
+          <div class="last-week">Press Click to Close</div>
+        </div>
+      </div>
+    </section>
     <!-- ///////////////// -->
 
     <!--  ///////////////// -->
-    <div class="overlay hidden"></div>
+    <div class="overlay"></div>
+    <div class="overlay-minor hidden"></div>
+    <div class="overlay-request hidden"></div>
     <!--  ///////////////// -->
 
     <!-- MAIN START  -->

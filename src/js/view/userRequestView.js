@@ -62,8 +62,8 @@ class UserRequestView extends View {
   addHandlerLogin(handler) {
     this._parentEl.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn--small");
+
       if (!btn) return;
-      console.log(btn.dataset.status);
       handler(
         btn.dataset.status,
         e.target.closest(".requests-view").dataset.id

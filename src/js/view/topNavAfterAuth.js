@@ -29,6 +29,16 @@ class topNavAfterAuth extends View {
               </button>
             </li>
             <!-- ITEM 1 END -->
+                
+
+             <!-- ITEM 2 -->
+            <li class="nav__items--item status__price--context">
+              <ul class="status__price">
+                <span><img src="https://img.icons8.com/fluency/48/000000/low-price.png"/>  Current price of the Coin is <span class="status__coin--price">1$</span> </span>
+              </ul>
+            </li>
+            <!-- ITEM 2 END -->
+                 
 
             <!-- ITEM 3 -->
             <li class="nav__items--item">

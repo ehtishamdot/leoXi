@@ -1,0 +1,250 @@
+.stat-tile {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(40px, 1fr));
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0.2rem;
+  position: absolute;
+  z-index: 200;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#work {
+  color: var(--white);
+}
+
+#work::before {
+  content: url(/src/icons/icon-work.svg);
+}
+.stat-tile::before {
+  z-index: -1;
+  position: absolute;
+  right: 18px;
+  top: -11px;
+}
+
+.stat-content {
+  background-color: #1c1f4a;
+  grid-row: 2 / span 3;
+  padding: 1rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 20rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .tile-header {
+    margin-bottom: 1rem;
+  }
+}
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.tile-title {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 700px) {
+  .tile-main {
+    display: unset;
+  }
+}
+.tile-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 700px) {
+  .time {
+    font-size: 3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .time,
+  .last-week {
+    display: block;
+  }
+}
+.time {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.time,
+.last-week {
+  display: inline-block;
+}
+
+@media only screen and (min-width: 700px) {
+  .time,
+  .last-week {
+    display: block;
+  }
+}
+.last-week {
+  color: var(--pale-blue);
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.time,
+.last-week {
+  display: inline-block;
+}
+
+.time {
+  color: $green;
+}
+
+/////////////////////////////////////////////////////////////////// REQUEST OVERLAY ///////////////
+
+:root {
+  --color-primair-dark-cyan: hsl(185, 75%, 39%);
+  --color-primair-dark-blue: hsl(229, 23%, 23%);
+  --color-primair-dark-greyblue: hsl(227, 10%, 46%);
+  --color-secondary-dark-gray: hsl(0, 0%, 59%);
+  --color-shadow: rgba(8, 70, 94, 0.54);
+}
+
+//// REQUEST OVERLAY
+.request__overlay {
+  position: sticky;
+  top: 40%;
+  margin: 0 auto;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20.375rem;
+  overflow: hidden;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.profile {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+.profile__background {
+  width: 100%;
+}
+.profile__photo {
+  position: absolute;
+  left: 50%;
+  width: 9rem;
+  height: 9rem;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: 44%;
+
+  @include respond(tab-port) {
+    top: 40%;
+  }
+}
+
+.profile__person {
+  margin: 4.5rem 0 1rem;
+  font-size: 1.625rem;
+  font-weight: 700;
+  margin-top: 8rem;
+}
+
+.profile__request {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 55rem) {
+  .card {
+    width: 31.875rem;
+    box-shadow: 0 50px 100px -20px rgba(8, 70, 94, 50.48%);
+  }
+}
+
+///////////////
+
+/* Bill input box  */
+
+.bill-input,
+.number-of-people {
+  width: 100%;
+  background-color: hsl(186, 76%, 92%);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1px auto;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+.fas {
+  color: hsl(184, 14%, 56%);
+  /* font-size: 16px; */
+}
+
+.bill-input input[type="number"],
+.number-of-people input[type="number"] {
+  width: 88%;
+  height: 44px;
+  right: 1px;
+  background-color: hsl(186, 76%, 92%);
+  border: none;
+  text-align: right;
+  padding-right: 4px;
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  -moz-appearance: textfield;
+}
+
+/* to remove arrows in input  */
+.bill-input input[type="number"]::-webkit-outer-spin-button,
+.bill-input input[type="number"]::-webkit-inner-spin-button,
+.number-of-people input[type="number"]::-webkit-inner-spin-button,
+.number-of-people input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+/* to remove input outline when active  */
+.bill-input input[type="number"]:focus,
+.number-of-people input[type="number"]:focus {
+  outline: none;
+}
+
+/* set outline to entire input container when input active  */
+.bill-input:focus-within,
+.number-of-people:focus-within {
+  border: 2px solid hsl(172, 67%, 45%);
+}
+
+.cancel-btn {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  z-index: 2;
+  cursor: pointer;
+}

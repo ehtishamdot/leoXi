@@ -31,7 +31,7 @@ class topNavBeforeAuth extends View {
 
             <!-- ITEM 3 -->
             <li class="nav__items--item">
-              <ul class="status__signup btn-signup">
+              <ul class="status__signup btn-login btn-signup">
                 <span>Sign Up to get Started</span>
               </ul>
             </li>

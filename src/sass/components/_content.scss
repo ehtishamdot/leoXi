@@ -60,4 +60,23 @@
     cursor: pointer;
     margin-right: 7rem;
   }
+  
+  &__price--context{
+    @include respond(tab-port){
+      display: none;
+    }
+  }
+
+  &__price {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 2.1rem;
+    margin-right: 2rem;
+    margin-right: 7rem;
+  }
+
+  &__coin--price {
+    color: $green;
+    font-weight: 600;
+  }
 }

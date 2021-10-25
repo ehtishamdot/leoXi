@@ -14,7 +14,12 @@ export class View {
 
   _generateMarkup() {}
 
-  renderSpinner() {}
+  renderSpinner(parentEl) {
+    const markup = ` 
+     <div class="lds-dual-ring"></div>>`;
+    console.log(parentEl);
+    document.querySelector(parentEl).insertAdjacentHTML("afterbegin", markup);
+  }
 
   renderMessage() {}
 
@@ -34,5 +39,9 @@ export class View {
 
   renderClear() {
     this._parentEl.innerHTML = "";
+  }
+
+  renderChildClear() {
+    this._parentChildEL.innerHTML = "";
   }
 }

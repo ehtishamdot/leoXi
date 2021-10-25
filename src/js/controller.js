@@ -5,6 +5,8 @@ import usersView from "./view/usersView";
 import userRequestView from "./view/userRequestView";
 import sideNavAfterAuth from "./view/sideNavAfterAuth";
 import sideNavBeforeAuth from "./view/sideNavBeforeAuth";
+import requestOverlayView from "./view/requestOverlayView";
+import requestSubmittedOverlayView from "./view/requestSubmittedOverlayView";
 
 //firebase
 import * as firebase from "../js/firebase/init";
@@ -17,6 +19,7 @@ import * as Helpers from "./helpers";
 
 //nav
 import * as navigation from "./navigation";
+import { async } from "regenerator-runtime";
 
 const controlAuthState = async () => {
   await firebase.onAuthStateChanged(firebase.auth, (user) => {
@@ -65,31 +68,8 @@ const controlUsers = async () => {
   }
 };
 
-const controlUserSendRequests = async (sendToId) => {
-  //sending request
-  try {
-    const data = model.userInfo.displayInfo;
-
-    await firebase.update(firebase.ref(firebase.database, "users/" + data.id), {
-      coins: model.userInfo.displayInfo.coins - 3.5,
-    });
-
-    // Stores users data to the user realtimeDB
-    firebase.set(firebase.ref(firebase.database, "notifications/" + data.id), {
-      sendFrom: data.id,
-      sendTo: sendToId,
-      name: data.name,
-      imageURL: data.imageURL,
-      coins: 3.5,
-    });
-
-    controlAuthState();
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 const controlRecievedRequests = async () => {
+  userRequestView.renderSpinner(".dashboard__users");
   const dbRef = firebase.ref(firebase.database);
   const snapshot = await firebase.get(firebase.child(dbRef, "notifications"));
   userRequestView.renderClear();
@@ -100,42 +80,6 @@ const controlRecievedRequests = async () => {
       }
     });
   }
-};
-
-const controlRequestStatus = async (status, id) => {
-  //getting requests user Data
-  const dbRef = firebase.ref(firebase.database);
-  const snapshot = await firebase.get(
-    firebase.child(dbRef, "notifications/" + id)
-  );
-
-  // get the coins and add them to current user coins and display this notification in history
-  if (Number(status)) {
-    //UPDATES THE SNAPSHOT
-    await firebase.update(
-      firebase.ref(firebase.database, "users/" + model.userInfo.displayInfo.id),
-      {
-        coins: snapshot.val().coins + model.userInfo.displayInfo.coins,
-      }
-    );
-
-    await firebase.remove(
-      firebase.ref(firebase.database, "notifications/" + id)
-    );
-  } else {
-    //DELETES THE SNAPSHOT
-    await firebase.remove(
-      firebase.ref(firebase.database, "notifications/" + id)
-    );
-  }
-
-  controlAuthState();
-  controlRecievedRequests();
-  ///
-  firebase.set(
-    firebase.ref(firebase.database, "notiHistory/" + id),
-    snapshot.val()
-  );
 };
 
 const controlLogoutAuth = async () => {
@@ -196,12 +140,138 @@ const controlLoginAuth = async () => {
   }
 };
 
+const controlReqProfileView = async (id) => {
+  //printing view
+  const dbRef = firebase.ref(firebase.database);
+  const snapshot = await firebase.get(
+    firebase.child(dbRef, "notifications/" + model.userInfo.displayInfo.id)
+  );
+  const snapshotUser = await firebase.get(firebase.child(dbRef, "users/" + id));
+
+  const snapshotNoti = await firebase.get(
+    firebase.child(dbRef, "notifications")
+  );
+  let status = false;
+
+  // requestOverlayView.renderSpinner(".request__overlay");
+    
+  snapshotNoti?.forEach((snap) => {
+    if (snap?.val().sendTo == id) {
+      console.log(snap.val().sendTo, id);
+      status = true;
+    }
+  });
+
+  if (status) {
+    requestOverlayView.render(snapshotUser?.val());
+    requestSubmittedOverlayView.setting();
+  } else {
+    requestOverlayView.setting();
+    requestOverlayView.render(snapshotUser?.val());
+  }
+};
+
+const controlUserSendRequests = async (val, sendToId) => {
+  //sending request
+  try {
+    console.log(val, sendToId);
+    if (val > model.userInfo.displayInfo.coins) {
+      alert("You have insufficient coins");
+      return;
+    }
+
+    if (val < 0) {
+      alert("Enter the correct amount");
+      return;
+    }
+
+    if (val == undefined && val == null && val == 0) {
+      alert("Enter again");
+      return;
+    }
+
+    const data = model.userInfo.displayInfo;
+
+    console.log(data.id);
+    await firebase.update(firebase.ref(firebase.database, "users/" + data.id), {
+      coins: model.userInfo.displayInfo.coins - val,
+      prevCoins: model.userInfo.displayInfo.coins,
+    });
+
+    // Stores users data to the user realtimeDB
+    firebase.set(firebase.ref(firebase.database, "notifications/" + data.id), {
+      sendFrom: data.id,
+      sendTo: sendToId,
+      name: data.name,
+      imageURL: data.imageURL,
+      coins: val,
+    });
+
+    controlAuthState();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const controlRequestStatus = async (status, id) => {
+  //getting requests user Data
+  const dbRef = firebase.ref(firebase.database);
+  const snapshot = await firebase.get(
+    firebase.child(dbRef, "notifications/" + id)
+  );
+
+  // get the coins and add them to current user coins and display this notification in history
+  if (Number(status)) {
+    //UPDATES THE SNAPSHOT
+    await firebase.update(
+      firebase.ref(firebase.database, "users/" + model.userInfo.displayInfo.id),
+      {
+        coins: snapshot.val().coins + model.userInfo.displayInfo.coins,
+      }
+    );
+
+    await firebase.remove(
+      firebase.ref(firebase.database, "notifications/" + id)
+    );
+  } else {
+    const dbRef = firebase.ref(firebase.database);
+
+    const snapshotUser = await firebase.get(
+      firebase.child(dbRef, "users/" + id)
+    );
+    console.log(snapshotUser.val().prevCoins);
+
+    await firebase.update(firebase.ref(firebase.database, "users/" + id), {
+      coins: snapshotUser.val().prevCoins,
+    });
+
+    // DELETES THE SNAPSHOT
+    await firebase.remove(
+      firebase.ref(firebase.database, "notifications/" + id)
+    );
+  }
+
+  requestOverlayView.renderClear();
+  controlAuthState();
+  controlRecievedRequests();
+  ///
+  firebase.set(
+    firebase.ref(firebase.database, "notiHistory/" + id),
+    snapshot.val()
+  );
+};
+
+const controlCancelDom = () => {};
+
 (() => {
   topNavAfterAuth.addHandlerLogin(controlLoginAuth);
   sideNavBeforeAuth.addHandlerLogin(controlLoginAuth);
   topNavBeforeAuth.addHandlerLogin(controlLogoutAuth);
   sideNavAfterAuth.addHandlerLogin(controlLogoutAuth);
-  usersView.addHandlerLogin(controlUserSendRequests);
+  usersView.addHandlerLogin(controlReqProfileView);
   userRequestView.addHandlerLogin(controlRequestStatus);
+  requestOverlayView.addHandlerLogin(controlReqProfileView);
+  requestOverlayView.addHandlerSubmit(controlUserSendRequests);
+  requestOverlayView.addHandlerCancel(controlCancelDom);
   controlAuthState();
 })();
