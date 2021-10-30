@@ -1,8 +1,11 @@
 export class View {
   _userInfo;
+  _coinsInfo;
 
-  render(data) {
+
+  render(data, coinsInfo) {
     this._userInfo = data;
+    this._coinsInfo = coinsInfo;
     this._renderMarkup();
   }
 

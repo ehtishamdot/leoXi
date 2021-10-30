@@ -3,13 +3,15 @@ import { View } from "./view";
 class UsersView extends View {
   _parentEl = document.querySelector(".dashboard__users");
 
-  generateUsersMarkup(data) {
+  generateUsersMarkup(data, coinInfo) {
     const html = `
           <!-- PREVIEW USER START -->
             <li class="preview tehe"  data-id="${data.id}">
               <a class="preview__link" href="#${data.id}">
                 <figure class="preview__fig">
-                  <img src="${data.imageURL}" crossorigin="anonymous" alt="profile-image" />
+                  <img src="${
+                    data.imageURL
+                  }" crossorigin="anonymous" alt="profile-image" />
                 </figure>
                 <div style="display:flex; flex-direction: column;"> 
                 <div class="status__score status__score--white">
@@ -18,7 +20,9 @@ class UsersView extends View {
                 </div>
                 <div style="margin-top:1rem; font-size:2rem;">
                 <img src="https://img.icons8.com/fluency/48/000000/low-price.png">
-                <span class="status__coin--price" style="font-weight:300">${data.coins}$</span>
+                <span class="status__coin--price" style="font-weight:300">${Math.abs(
+                  data.coins * coinInfo.coinPrice
+                ).toFixed(2)}$</span>
                 </div>
                  </div>
               </a>

@@ -9,6 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- tailwind -->
+    <!-- <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
+
     <!-- --- SCSS ---  -->
     <link rel="stylesheet" href="./src/sass/main.scss" />
     <!-- --- ICONS --- -->
@@ -21,6 +28,79 @@
       <div class="burger__line burger__line2"></div>
       <div class="burger__line burger__line3"></div>
     </div>
+    <!-- /////////////// -->
+
+    <div class="card-back">
+      <!-- // ADMIN SETTING -->
+      <div class="admin__header">
+        <h2 class="admin__header--heading">ADMIN DASHBOARD</h2>
+        <svg width="26px" height="26px" viewBox="-4 -4 24 24">
+          <line
+            x1="2"
+            x2="14"
+            y1="2"
+            y2="14"
+            stroke-linecap="round"
+            stroke-width="2"
+            stroke="#bec2c9"
+          ></line>
+          <line
+            x1="2"
+            x2="14"
+            y1="14"
+            y2="2"
+            stroke-linecap="round"
+            stroke-width="2"
+            stroke="#bec2c9"
+          ></line>
+        </svg>
+      </div>
+
+      <div class="admin__setting">
+        <div class="operation operation--transfer">
+          <h2>Add Admin</h2>
+          <form class="form-admin form--transfer">
+            <input type="email" class="form__input form__input--to" />
+            <button class="form__btn form__btn--transfer">→</button>
+            <label class="form__label">Enter email</label>
+          </form>
+        </div>
+        <div class="operation operation--transfer">
+          <h2>Remove Admin</h2>
+          <form class="form-admin form--transfer">
+            <input type="email" class="form__input form__input--to" />
+            <button class="form__btn form__btn--transfer">→</button>
+            <label class="form__label">Enter email</label>
+          </form>
+        </div>
+
+        <!-- //SETTING CURRENCY VALUE -->
+        <div
+          class="operation operation--close"
+          style="grid-column-start: span 2; grid-row-start: span 2"
+        >
+          <h2>Change Current Coin Value</h2>
+          <form class="form-admin form--close">
+            <input
+              type="number"
+              class="form__input form__input--user"
+              min="0.01"
+              step="0.01"
+              max="2500"
+              value="25.67"
+            />
+            <button class="form__btn form__btn--close">→</button>
+            <label class="form__label">Currency - USD</label>
+          </form>
+        </div>
+        <!-- // CURRENT ADMINS -->
+      </div>
+      <div class="center-wrap" style="margin-top: 2rem">
+        <a href="#" class="btn mt-4">submit</a>
+      </div>
+    </div>
+
+    <!-- ////////////////// -->
 
     <!-- ///////////////// -->
     <!-- SIDE BAR NAV  -->
@@ -98,7 +178,7 @@
         <div class="tile-main">
           <div class="time">
             <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
-            1.2$
+            <span class="overlay__coin--price"></span>
           </div>
           <div class="last-week">Press Click to Close</div>
         </div>

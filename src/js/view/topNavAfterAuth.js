@@ -34,7 +34,9 @@ class topNavAfterAuth extends View {
              <!-- ITEM 2 -->
             <li class="nav__items--item status__price--context">
               <ul class="status__price">
-                <span><img src="https://img.icons8.com/fluency/48/000000/low-price.png"/>  Current price of the Coin is <span class="status__coin--price">1$</span> </span>
+                <span><img src="https://img.icons8.com/fluency/48/000000/low-price.png"/>  Current price of the Coin is <span class="status__coin--price">${Math.abs(
+                  this._coinsInfo.coinPrice
+                ).toFixed(2)}$</span> </span>
               </ul>
             </li>
             <!-- ITEM 2 END -->

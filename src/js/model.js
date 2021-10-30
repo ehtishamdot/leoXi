@@ -6,6 +6,11 @@ export let userInfo = {
   logStatus: false,
 };
 
+export let coinsValues = {
+  coinCounts: 0,
+  coinPrice: 0,
+};
+
 export let notifications = {};
 
 export const userInfoObject = (data) => {

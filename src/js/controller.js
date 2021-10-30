@@ -7,6 +7,7 @@ import sideNavAfterAuth from "./view/sideNavAfterAuth";
 import sideNavBeforeAuth from "./view/sideNavBeforeAuth";
 import requestOverlayView from "./view/requestOverlayView";
 import requestSubmittedOverlayView from "./view/requestSubmittedOverlayView";
+import defaultView from "./view/defaultView";
 
 //firebase
 import * as firebase from "../js/firebase/init";
@@ -19,7 +20,6 @@ import * as Helpers from "./helpers";
 
 //nav
 import * as navigation from "./navigation";
-import { async } from "regenerator-runtime";
 
 const controlAuthState = async () => {
   await firebase.onAuthStateChanged(firebase.auth, (user) => {
@@ -33,17 +33,31 @@ const controlAuthState = async () => {
           if (snapshot.exists()) {
             //sends the data to the model "USERINFO"
             model.userInfoObject(snapshot.val());
-
+          }
+        })
+        .then(() => {
+          //admin setting
+          adminGetAuth().then(() => {
             //render the display
-            topNavAfterAuth.render(model.userInfo.displayInfo);
-            sideNavAfterAuth.render();
+            topNavAfterAuth.render(
+              model.userInfo.displayInfo,
+              model.coinsValues
+            );
+
+            defaultView.defaultSettings(
+              model.userInfo.displayInfo,
+              model.coinsValues
+            );
 
             //control sidebar users
             controlUsers();
+          });
 
-            //controls recieved requests
-            controlRecievedRequests();
-          }
+          //render the display
+          sideNavAfterAuth.render();
+
+          //controls recieved requests
+          controlRecievedRequests();
         });
     } else {
       topNavBeforeAuth.render(model.userInfo.displayInfo);
@@ -60,9 +74,10 @@ const controlUsers = async () => {
 
   usersView.renderClear();
   if (querySnapshot.exists()) {
+    console.log(model.coinsValues.coinPrice);
     querySnapshot.forEach((doc) => {
       if (model.userInfo.displayInfo.email != doc.val().email) {
-        usersView.generateUsersMarkup(doc.val());
+        usersView.generateUsersMarkup(doc.val(), model.coinsValues);
       }
     });
   }
@@ -153,8 +168,6 @@ const controlReqProfileView = async (id) => {
   );
   let status = false;
 
-  // requestOverlayView.renderSpinner(".request__overlay");
-    
   snapshotNoti?.forEach((snap) => {
     if (snap?.val().sendTo == id) {
       console.log(snap.val().sendTo, id);
@@ -262,6 +275,38 @@ const controlRequestStatus = async (status, id) => {
 };
 
 const controlCancelDom = () => {};
+
+//  ----------- ADMIN PANNEL SETTING
+
+const adminSetAuth = (adminsInfo) => {
+  firebase.set(
+    firebase.ref(firebase.database, "admins/" + model.userInfo.displayInfo.id),
+    {
+      email: adminsInfo,
+    }
+  );
+};
+
+const adminGetAuth = async () => {
+  const dbRef = firebase.ref(firebase.database);
+  const snapshots = await firebase.get(firebase.child(dbRef, "admins"));
+
+  snapshots?.forEach((shot) => {
+    console.log(shot.val());
+    if (model.userInfo.displayInfo.email === shot.val().email) {
+      adminSetValue();
+    } else {
+      console.log("you are not admin");
+    }
+  });
+};
+
+// ----------------- COIN VALUES
+
+const adminSetValue = () => {
+  model.coinsValues.coinCounts = 5;
+  model.coinsValues.coinPrice = 4;
+};
 
 (() => {
   topNavAfterAuth.addHandlerLogin(controlLoginAuth);
