@@ -1,3 +1,4 @@
+import { doc } from "@firebase/firestore";
 import { View } from "./view";
 
 class AdminView extends View {
@@ -44,11 +45,34 @@ class AdminView extends View {
       </div>`;
   }
 
+  AdminDashboardAccessMarkup() {
+    const el = document.querySelector(".admin-access--container");
+    const markup = `<a  class="sidebar__items--link admin--access" style="cursor:pointer;">Admin Dashboard</a>`;
+    el.innerHTML = "";
+    el.insertAdjacentHTML("beforeend", markup);
+  }
+
   addHandlerSubmit(handler) {
     this._parentEl.addEventListener("submit", (e) => {
       e.preventDefault();
       handler(e.target.children[0].value, e.target.children[0].dataset.option);
     });
+  }
+
+  addHandlerClick() {
+    document.querySelector(".sidebar__items").addEventListener("click", (e) => {
+      const btn = e.target.closest(".admin--access");
+      if (!btn) return;
+      this._parentEl.parentElement.classList.toggle("hidden");
+      document.querySelector(".overlay-request").classList.toggle("hidden");
+    });
+
+    document
+      .querySelector(".admin-dashboard--cross")
+      .addEventListener("click", () => {
+        this._parentEl.parentElement.classList.toggle("hidden");
+        document.querySelector(".overlay-request").classList.toggle("hidden");
+      });
   }
 
   handleError(option) {

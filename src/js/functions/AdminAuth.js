@@ -21,7 +21,7 @@ import * as helper from "../helpers";
 
 //functions
 import * as state from "./State";
-import { async } from "@firebase/util";
+import * as users from "./Users";
 //  ----------- ADMIN PANNEL SETTING
 
 export const adminSetAuth = async (value, option) => {
@@ -85,29 +85,31 @@ export const adminSetAuth = async (value, option) => {
 
 export const adminGetAuth = async () => {
   const snapshots = await helper.getRT_FB("admins");
+  const snapshot = await helper.getRT_FB("coinValue");
   let adminStatus = false;
   snapshots?.forEach((shot) => {
     if (model.userInfo.displayInfo.email === shot.val().email) {
       adminStatus = true;
-      adminSetValue();
+      model.coinsValues.coinCounts = Number(snapshot.val().value);
+      model.coinsValues.coinPrice = Number(snapshot.val().value);
     }
   });
 
-  if (adminStatus) {
-    console.log("you are admin ji");
-    adminView.render();
-  } else {
-    console.log("ap admin nhi ho");
-  }
-};
-
-const adminSetValue = async () => {
-  const snapshot = await helper.getRT_FB("coinValue");
-  console.log(Number(snapshot.val().value));
-  model.coinsValues.coinCounts = Number(snapshot.val().value);
-  model.coinsValues.coinPrice = Number(snapshot.val().value);
   await defaultView.defaultSettings(
     model.userInfo.displayInfo,
     snapshot.val().value
   );
+  await topNavAfterAuth.render(
+    model.userInfo.displayInfo,
+    snapshot.val().value
+  );
+
+  users.controlUsers();
+
+  if (adminStatus) {
+    adminView.render();
+    adminView.AdminDashboardAccessMarkup();
+  }
 };
+
+const adminSetValue = async () => {};

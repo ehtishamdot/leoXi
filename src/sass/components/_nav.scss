@@ -30,7 +30,7 @@
 
 .sidebar__items {
   padding: 0 4rem 0 2rem;
-
+  cursor: pointer;
   @include flex-placeholder(flex-start, flex-start, row);
   flex-direction: column;
   width: 100%;

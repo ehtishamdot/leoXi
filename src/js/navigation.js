@@ -73,19 +73,49 @@ linksContainer.addEventListener("mouseover", (e) => {
   });
 });
 
-//move to the sections
-linksContainer.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.target.closest(".sidebar__items--link")) {
-    navToggles();
-    const href = document.querySelector(e.target.getAttribute("href"));
-    const sectionLocation = href.getBoundingClientRect();
-    const pX = window.pageXOffset;
-    const pY = window.pageYOffset;
-    window.scrollTo({
-      top: sectionLocation.top + pY,
-      bottom: sectionLocation.bottom,
-      behavior: "smooth",
+// //move to the sections
+// linksContainer.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   if (e.target.closest(".sidebar__items--link")) {
+//     navToggles();
+//     const href = document.querySelector(e.target.getAttribute("href"));
+//     const sectionLocation = href.getBoundingClientRect();
+//     const pX = window.pageXOffset;
+//     const pY = window.pageYOffset;
+//     window.scrollTo({
+//       top: sectionLocation.top + pY,
+//       bottom: sectionLocation.bottom,
+//       behavior: "smooth",
+//     });
+//   }
+// });
+
+const questions = document.querySelectorAll(".questions-accordeon");
+const answers = document.querySelectorAll(".answer-accordeon");
+console.log(questions);
+var flag = 0;
+
+questions.forEach((question, i) => {
+  questions[i].addEventListener("click", () => {
+    flag = i;
+    answers.forEach((answer, i) => {
+      if (flag === i) {
+        answers[i].classList.toggle("activa");
+        questions[i].classList.toggle("activa");
+      } else {
+        answers[i].classList.remove("activa");
+        questions[i].classList.remove("activa");
+      }
     });
-  }
+  });
+});
+
+document.querySelector(".faqs-btn").addEventListener("click", () => {
+  document.querySelector(".dashboard").classList.add("hidden");
+  document.querySelector(".faqs").classList.remove("hidden");
+});
+
+document.querySelector(".dashboard-btn").addEventListener("click", () => {
+  document.querySelector(".dashboard").classList.remove("hidden");
+  document.querySelector(".faqs").classList.add("hidden");
 });

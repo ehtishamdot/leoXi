@@ -21,7 +21,7 @@ class UsersView extends View {
                 <div style="margin-top:1rem; font-size:2rem;">
                 <img src="https://img.icons8.com/fluency/48/000000/low-price.png">
                 <span class="status__coin--price" style="font-weight:300">${Math.abs(
-                  data.coins * coinInfo.coinPrice
+                  data.coins * coinInfo
                 ).toFixed(2)}$</span>
                 </div>
                  </div>

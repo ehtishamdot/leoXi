@@ -30,11 +30,17 @@
     </div>
     <!-- /////////////// -->
 
-    <div class="card-back">
+    <div class="card-back hidden">
       <!-- // ADMIN SETTING -->
       <div class="admin__header">
         <h2 class="admin__header--heading">ADMIN DASHBOARD</h2>
-        <svg width="26px" height="26px" viewBox="-4 -4 24 24">
+        <svg
+          width="26px"
+          height="26px"
+          viewBox="-4 -4 24 24"
+          style="cursor: pointer"
+          class="admin-dashboard--cross"
+        >
           <line
             x1="2"
             x2="14"
@@ -57,9 +63,9 @@
       </div>
 
       <div class="admin__setting"></div>
-      <div class="center-wrap" style="margin-top: 2rem">
+      <!-- <div class="center-wrap" style="margin-top: 2rem">
         <a href="#" class="btn mt-4">submit</a>
-      </div>
+      </div> -->
     </div>
 
     <!-- ////////////////// -->
@@ -78,12 +84,15 @@
         <span class="sidebar__items--heading u-margin-bottom-small"
           >Jump to</span
         >
-        <a href="#" class="sidebar__items--link">Price Change</a>
-        <a href="#" class="sidebar__items--link">Assets</a>
-        <a href="#" class="sidebar__items--link">Trade</a>
-        <a href="#" class="sidebar__items--link">Notifications</a>
-        <a href="#" class="sidebar__items--link">Bookmarks</a>
-        <a href="#section--5" class="sidebar__items--link"> Contact Me</a>
+        <a class="sidebar__items--link dashboard-btn">Dashboard</a>
+        <a class="sidebar__items--link">Price Change</a>
+        <a class="sidebar__items--link faqs-btn">Faqs</a>
+        <a class="sidebar__items--link">Assets</a>
+        <a class="sidebar__items--link">Trade</a>
+        <a class="sidebar__items--link">Notifications</a>
+        <a class="sidebar__items--link">Bookmarks</a>
+        <a class="sidebar__items--link"> Contact Me</a>
+        <ul class="admin-access--container"></ul>
         <!-- // BREADK THE LINE // -->
       </ul>
       <hr class="hr-default" />
@@ -135,7 +144,9 @@
     <!-- ///////////////// -->
     <section class="stat-tile" id="work">
       <div class="stat-content">
-        <div class="tile-header"><h2 class="tile-title">Current Price</h2></div>
+        <div class="tile-header">
+          <h2 class="tile-title" style="color: white">Current Price</h2>
+        </div>
         <div class="tile-main">
           <div class="time">
             <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
@@ -154,7 +165,7 @@
     <!--  ///////////////// -->
 
     <!-- MAIN START  -->
-    <main class="main">
+    <main class="main" style="height: 100vh">
       <!-- CONTENT START -->
       <content class="content">
         <!-- NAVIGATION -->
@@ -163,115 +174,7 @@
         </nav>
         <!-- NAVIGATION END -->
 
-        <!--  ///////////////// -->
-
-        <div class="faqs hidden">
-          <div class="position-image-box">
-            <img
-              class="box"
-              src="./src/icons/illustration-box-desktop.svg"
-              alt=""
-            />
-
-            <img
-              class="image-woman-mobile"
-              src="./src/icons/illustration-woman-online-mobile.svg"
-              alt=""
-            />
-          </div>
-
-          <div class="container">
-            <div class="images">
-              <img
-                class="image-shadow"
-                src="./src/icons/bg-pattern-desktop.svg"
-                alt=""
-              />
-              <img
-                class="image-woman"
-                src="./src/icons/illustration-woman-online-desktop.svg"
-                alt=""
-              />
-
-              <img
-                class="image-shadow-mobile"
-                src="./src/icons/bg-pattern-mobile.svg"
-                alt=""
-              />
-            </div>
-
-            <div class="questions-answers">
-              <h1 class="title-accordeon">FAQ</h1>
-
-              <div class="accordeon-container">
-                <div class="questions-accordeon">
-                  <p>How many team members can I invite?</p>
-                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
-                </div>
-                <div class="answer-accordeon">
-                  <p>
-                    You can invite up to 2 additional users on the Free plan.
-                    There is no limit on team members for the Premium plan.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordeon-container">
-                <div class="questions-accordeon">
-                  <p>What is the maximum file upload size?</p>
-                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
-                </div>
-                <div class="answer-accordeon">
-                  <p>
-                    No more than 2GB. All files in your account must fit your
-                    allotted storage space.
-                  </p>
-                </div>
-              </div>
-
-              <div class="accordeon-container">
-                <div class="questions-accordeon">
-                  <p>How do I reset my password?</p>
-                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
-                </div>
-                <div class="answer-accordeon">
-                  <p>
-                    Click “Forgot password” from the login page or “Change
-                    password” from your profile page. A reset link will be
-                    emailed to you.
-                  </p>
-                </div>
-              </div>
-              <div class="accordeon-container">
-                <div class="questions-accordeon">
-                  <p>Can I cancel my subscription?</p>
-                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
-                </div>
-                <div class="answer-accordeon">
-                  <p>
-                    Yes! Send us a message and we’ll process your request no
-                    questions asked.
-                  </p>
-                </div>
-              </div>
-              <div class="accordeon-container">
-                <div class="questions-accordeon">
-                  <p>Do you provide additional support?</p>
-                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
-                </div>
-                <div class="answer-accordeon">
-                  <p>
-                    Chat and email support is available 24/7. Phone lines are
-                    open during normal business hours.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--  ///////////////// -->
-
-        <div class="dashboard">
+        <div class="dashboard hidden">
           <!-- USERS INTERACTION AREA -->
           <div class="dashboard__users"></div>
           <!-- USERS INTERACTION AREA END -->
@@ -299,6 +202,132 @@
           </div>
           <!-- LIVE UPDATES END-->
         </div>
+
+        <!--  ///////////////// -->
+
+        <div
+          class="faqs hidden"
+          style="
+            height: 78%;
+            display: flex;
+            justify-content: center;
+            margin-top: 8rem;
+          "
+        >
+          <div class="position-image-box">
+            <img
+              class="box"
+              src="./src/icons/illustration-box-desktop.svg"
+              alt=""
+            />
+
+            <img
+              class="image-woman-mobile"
+              src="./src/icons/illustration-woman-online-mobile.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="container">
+            <div class="images">
+              <img
+                class="image-shadow"
+                src="./src/icons/bg-pattern-desktop.svg"
+                alt=""
+              />
+              <img class="image-woman" src="./src/icons/icon.png" alt="" />
+
+              <img
+                class="image-shadow-mobile"
+                src="./src/icons/bg-pattern-mobile.svg"
+                alt=""
+              />
+            </div>
+
+            <div class="questions-answers">
+              <h1 class="title-accordeon">FAQ</h1>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What is LeoXI?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    LeoXI is a Revoliutonary Pear to Pear exchange. Created for
+                    people who wants to earn some extra passive income, by
+                    buying and selling the LeoXI coins. LeoXI has an unique idea
+                    for investing risk free.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What return to expect when buying LeoXI coins?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    LeoXI is deflationary coin, that means that is limited. We
+                    guarantee a steady 5% daily growth of the coin price. In
+                    this case you have atleast 5% return on your investment.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i buy LeoXI coins?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    First you need to deposit some money into your personal
+                    wallet with selected crypto currency. Then you can buy the
+                    coins with your balance, from other users.
+                  </p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i withdraw my earned money?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    Go to the ,,Withdraw" Section, enter the ammount that you
+                    want to withdraw, choose your method. MAKE SURE TO ENTER THE
+                    GOOD ADRESS FOR WITHDRAW. ALL WITHDRAWS TAKE ABOUT 24 HOURS.
+                  </p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What payment methods do you support for deposit?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>We support only cryptocurrency. BTC/USDT</p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i deposit money into my personal wallet?</p>
+                  <img src="./src/icons/icon-arrow-down.svg" alt="" />
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    Go to the ,, Deposit " Section. Select you payment method,
+                    enter the ammount that you want to deposit. Take the adress
+                    and deposit. ALL DEPOSITS TAKE ABOUT 24 HOURS.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  ///////////////// -->
       </content>
       <!-- CONTENT END -->
     </main>

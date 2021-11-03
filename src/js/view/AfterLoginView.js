@@ -5,10 +5,16 @@ class Login extends View {
 
   _generateMarkup() {}
 
+  setting() {
+    document.querySelector(".dashboard").classList.remove("hidden");
+    document.querySelector(".faqs").classList.add("hidden");
+  }
+
   addHandlerLogin(handler) {
     this._parentEl.addEventListener("click", () => {
       handler();
       this.addHidden();
+      
     });
   }
 }

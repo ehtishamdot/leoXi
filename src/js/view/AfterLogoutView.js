@@ -6,7 +6,10 @@ class LogOut extends View {
   render() {
     console.log("you clicked logout button");
   }
-
+  setting() {
+    document.querySelector(".dashboard").classList.add("hidden");
+    document.querySelector(".faqs").classList.remove("hidden");
+  }
   addHandlerLogin(handler) {
     this._parentEl.addEventListener("click", () => {
       handler();

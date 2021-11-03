@@ -20,6 +20,7 @@ import * as state from "./State";
 
 //Helper
 import * as helper from "../helpers";
+import AfterLoginView from "../view/AfterLoginView";
 
 export const controlLogoutAuth = async () => {
   firebase
@@ -27,6 +28,7 @@ export const controlLogoutAuth = async () => {
     .then(() => {
       topNavBeforeAuth.render();
       sideNavBeforeAuth.render();
+      state.controlAuthState();
     })
     .catch((err) => {
       console.log(err);

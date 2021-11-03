@@ -44,5 +44,6 @@ const controlCancelDom = () => {};
   requestOverlayView.addHandlerSubmit(request.controlUserSendRequests);
   requestOverlayView.addHandlerCancel(controlCancelDom);
   adminView.addHandlerSubmit(adminAuth.adminSetAuth);
+  adminView.addHandlerClick();
   state.controlAuthState();
 })();

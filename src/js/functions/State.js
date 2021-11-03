@@ -8,6 +8,8 @@ import sideNavBeforeAuth from "../view/sideNavBeforeAuth";
 import requestOverlayView from "../view/requestOverlayView";
 import requestSubmittedOverlayView from "../view/requestSubmittedOverlayView";
 import defaultView from "../view/defaultView";
+import AfterLoginView from "../view/AfterLoginView";
+import AfterLogoutView from "../view/AfterLogoutView";
 
 //firebase
 import * as firebase from "../firebase/init";
@@ -19,6 +21,7 @@ import * as model from "../model";
 import * as adminAuth from "./AdminAuth";
 import * as users from "./Users";
 import * as requests from "./Requests";
+import AfterLogoutView from "../view/AfterLogoutView";
 
 export const controlAuthState = async () => {
   await firebase.onAuthStateChanged(firebase.auth, (user) => {
@@ -38,22 +41,12 @@ export const controlAuthState = async () => {
           //admin setting
           adminAuth.adminGetAuth().then(() => {
             //render the display
-            topNavAfterAuth.render(
-              model.userInfo.displayInfo,
-              model.coinsValues
-            );
-
-            defaultView.defaultSettings(
-              model.userInfo.displayInfo,
-              model.coinsValues
-            );
-
             //control sidebar users
-            users.controlUsers();
           });
 
           //render the display
           sideNavAfterAuth.render();
+          AfterLoginView.setting();
 
           //controls recieved requests
           requests.controlRecievedRequests();
@@ -61,6 +54,8 @@ export const controlAuthState = async () => {
     } else {
       topNavBeforeAuth.render(model.userInfo.displayInfo);
       sideNavBeforeAuth.render();
+      AfterLogoutView.render();
+      AfterLogoutView.setting();
     }
   });
 };

@@ -29,9 +29,10 @@
 
 .image-woman {
   position: absolute;
-  width: 500px;
-  left: -95px;
-  top: 100px;
+  position: absolute;
+  width: 417px;
+  left: -8px;
+  top: 58px;
   z-index: 2;
 }
 
@@ -43,7 +44,7 @@
   z-index: 1;
 }
 
-.position-image-box img.image-woman-mobile{
+.position-image-box img.image-woman-mobile {
   visibility: hidden;
 }
 
@@ -55,7 +56,7 @@
 
 .title-accordeon {
   padding-bottom: 30px;
-  font-size: -webkit-xxx-large;
+  font-size: 2.3rem;
   color: var(--VeryDarkDesaturatedBlue);
 }
 
@@ -73,6 +74,7 @@
   align-items: center;
   padding-bottom: 10px;
   padding-top: 10px;
+  font-size: 2.2rem;
 }
 
 .questions-accordeon img {
@@ -95,7 +97,7 @@
 
 /* ------------------------------ACCORDEON ANSWER------------------------------------  */
 .answer-accordeon {
-  font-size: smaller;
+  font-size: 1.9rem;
   color: var(--DarkGrayishBlue);
   overflow: hidden;
   height: 0;
@@ -115,9 +117,6 @@
 /* ------------------------------MOBILE------------------------------------  */
 
 @media only screen and (max-width: 900px) {
-  body{
-    flex-direction: column;
-  }
   .attribution {
     text-align: center;
   }
@@ -126,64 +125,47 @@
   .container {
     display: grid;
     width: 330px;
-    height: 550px;
     grid-template-columns: none;
     grid-template-rows: 0.5fr 3fr;
     z-index: 1;
   }
 
-  .questions-answers{
+  .questions-answers {
     align-items: center;
     width: auto;
     height: auto;
-    max-height: 400px;
     padding: 0px 20px;
   }
 
   /* ------------------------------IMAGES HIDDEN------------------------------------  */
-  .images img.image-shadow{
-    display:none;
-
+  .images img.image-shadow {
+    display: none;
   }
 
-  .images img.image-woman{
-    display:none;
+  .images img.image-woman {
+    display: none;
   }
 
-  .position-image-box img.box{
+  .position-image-box img.box {
     visibility: hidden;
   }
 
-  .position-image-box img.image-woman-mobile{
+  .position-image-box img.image-woman-mobile {
     visibility: visible;
   }
   /* ------------------------------NEW CSS IN IMAGES------------------------------------  */
 
-  .images{
+  .images {
     width: 0px;
     height: 0px;
     position: relative;
   }
 
-  .image-shadow-mobile{
-    position: absolute;
-    left: 40px;
-    top: -45px;
+  .questions-accordeon {
+    font-size: 1.9rem;
   }
 
-  .image-woman-mobile{
-    position: absolute;
-    top: -105px;
-    left: -152px;
-    z-index: 2;
+  .title-accordeon {
+    font-size: 2.2rem;
   }
-
-  .questions-accordeon{
-    font-size: small;
-  }
-  
-  .title-accordeon{
-    font-size: xx-large;
-  }
-
 }
