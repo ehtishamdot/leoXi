@@ -10,17 +10,13 @@
       rel="stylesheet"
     />
 
-    <!-- tailwind -->
-    <!-- <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    /> -->
+    <link rel="icon" sizes="76x76" href="./src/icons/icon.png" />
 
     <!-- --- SCSS ---  -->
     <link rel="stylesheet" href="./src/sass/main.scss" />
     <!-- --- ICONS --- -->
 
-    <title></title>
+    <title>Menu</title>
   </head>
   <body>
     <div class="burger">
@@ -84,14 +80,14 @@
         <span class="sidebar__items--heading u-margin-bottom-small"
           >Jump to</span
         >
+        <a
+          href="./Dashboards/pages/dashboard.html"
+          class="sidebar__items--link dashboard-btn"
+          >Price Change</a
+        >
         <a class="sidebar__items--link dashboard-btn">Dashboard</a>
-        <a class="sidebar__items--link">Price Change</a>
         <a class="sidebar__items--link faqs-btn">Faqs</a>
-        <a class="sidebar__items--link">Assets</a>
         <a class="sidebar__items--link">Trade</a>
-        <a class="sidebar__items--link">Notifications</a>
-        <a class="sidebar__items--link">Bookmarks</a>
-        <a class="sidebar__items--link"> Contact Me</a>
         <ul class="admin-access--container"></ul>
         <!-- // BREADK THE LINE // -->
       </ul>
@@ -228,7 +224,7 @@
             />
           </div>
 
-          <div class="container">
+          <div class="container" style="overflow-y: scroll;">
             <div class="images">
               <img
                 class="image-shadow"

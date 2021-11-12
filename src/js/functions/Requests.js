@@ -78,6 +78,19 @@ export const controlUserSendRequests = async (val, sendToId) => {
       prevCoins: model.userInfo.displayInfo.coins,
     });
 
+    //Userhistory
+    const coinValue = await helper.getRT_FB("coinValue");
+    const user = await helper.getRT_FB("users/" + data.id);
+    const userHistory = await helper.getRT_FB("userHistory/" + data.id);
+    console.log(user.val().coins * coinValue.val().value);
+    await helper.updateRT_FB("userHistory/" + data.id, {
+      totalIncome:
+        model.userInfo.displayInfo.coins * coinValue.val().value +
+        val * coinValue.val().value,
+    });
+
+    console.log(userHistory.val().totalIncome);
+
     // Stores users data to the user realtimeDB
     await helper.setRT_FB("notifications/" + data.id, {
       sendFrom: data.id,

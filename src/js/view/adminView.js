@@ -31,10 +31,8 @@ class AdminView extends View {
           <form class="form-admin form--close coin--value">
             <input
               type="number"
-              class="form__input form__input--user"
-              min="0.01"
               step="0.01"
-              max="2500"
+              class="form__input form__input--user"
               data-option= "coin--value"
             />
             <button class="form__btn form__btn--close">→</button>

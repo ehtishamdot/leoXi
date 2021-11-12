@@ -16,12 +16,6 @@ import * as firebase from "../js/firebase/init";
 //Model
 import * as model from "./model";
 
-//Helpers
-import * as Helpers from "./helpers";
-
-//nav
-import * as navigation from "./navigation";
-
 //Functions
 import * as auth from "./functions/Auth";
 import * as request from "./functions/Requests";
@@ -29,21 +23,28 @@ import * as state from "./functions/State";
 import * as adminAuth from "./functions/AdminAuth";
 import * as overlay from "./functions/Overlays";
 
+
+//Helpers
+import * as Helpers from "./helpers";
+
+//nav
+import * as navigation from "./navigation";
+
 const controlCancelDom = () => {};
 
 // ----------------- Control ADD Event Listeners
 
 (() => {
-  topNavAfterAuth.addHandlerLogin(auth.controlLoginAuth);
-  sideNavBeforeAuth.addHandlerLogin(auth.controlLoginAuth);
-  topNavBeforeAuth.addHandlerLogin(auth.controlLogoutAuth);
-  sideNavAfterAuth.addHandlerLogin(auth.controlLogoutAuth);
-  usersView.addHandlerLogin(overlay.controlReqProfileView);
-  userRequestView.addHandlerLogin(request.controlRequestStatus);
-  requestOverlayView.addHandlerLogin(overlay.controlReqProfileView);
-  requestOverlayView.addHandlerSubmit(request.controlUserSendRequests);
+  topNavAfterAuth.addHandlerLogin(auth?.controlLoginAuth);
+  sideNavBeforeAuth.addHandlerLogin(auth?.controlLoginAuth);
+  topNavBeforeAuth.addHandlerLogin(auth?.controlLogoutAuth);
+  sideNavAfterAuth.addHandlerLogin(auth?.controlLogoutAuth);
+  usersView.addHandlerLogin(overlay?.controlReqProfileView);
+  userRequestView.addHandlerLogin(request?.controlRequestStatus);
+  requestOverlayView.addHandlerLogin(overlay?.controlReqProfileView);
+  requestOverlayView.addHandlerSubmit(request?.controlUserSendRequests);
   requestOverlayView.addHandlerCancel(controlCancelDom);
-  adminView.addHandlerSubmit(adminAuth.adminSetAuth);
-  adminView.addHandlerClick();
-  state.controlAuthState();
+  adminView.addHandlerSubmit(adminAuth?.adminSetAuth);
+  adminView?.addHandlerClick();
+  state?.controlAuthState();
 })();
