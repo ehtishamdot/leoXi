@@ -23,7 +23,6 @@ import * as state from "./functions/State";
 import * as adminAuth from "./functions/AdminAuth";
 import * as overlay from "./functions/Overlays";
 
-
 //Helpers
 import * as Helpers from "./helpers";
 
@@ -39,9 +38,10 @@ const controlCancelDom = () => {};
   sideNavBeforeAuth.addHandlerLogin(auth?.controlLoginAuth);
   topNavBeforeAuth.addHandlerLogin(auth?.controlLogoutAuth);
   sideNavAfterAuth.addHandlerLogin(auth?.controlLogoutAuth);
-  usersView.addHandlerLogin(overlay?.controlReqProfileView);
-  userRequestView.addHandlerLogin(request?.controlRequestStatus);
-  requestOverlayView.addHandlerLogin(overlay?.controlReqProfileView);
+  usersView.addHandlerSell(overlay?.controlReqProfileView);
+  usersView.addHandlerBuy(overlay?.controlReqProfileView);
+  // userRequestView.addHandlerLogin(request?.controlRequestStatus);
+  // requestOverlayView.addHandlerLogin(overlay?.controlReqProfileView);
   requestOverlayView.addHandlerSubmit(request?.controlUserSendRequests);
   requestOverlayView.addHandlerCancel(controlCancelDom);
   adminView.addHandlerSubmit(adminAuth?.adminSetAuth);

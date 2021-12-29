@@ -1,9 +1,10 @@
 export class View {
   _userInfo;
   _coinsInfo;
+  _mod;
 
-
-  render(data, coinsInfo) {
+  render(data, coinsInfo, mod) {
+    this._mod = mod;
     this._userInfo = data;
     this._coinsInfo = coinsInfo;
     this._renderMarkup();
@@ -19,7 +20,7 @@ export class View {
 
   renderSpinner(parentEl) {
     const markup = ` 
-     <div class="lds-dual-ring"></div>>`;
+     <div class="lds-dual-ring"></div>`;
     console.log(parentEl);
     document.querySelector(parentEl).insertAdjacentHTML("afterbegin", markup);
   }

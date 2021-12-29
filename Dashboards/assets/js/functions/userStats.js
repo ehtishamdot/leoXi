@@ -16,11 +16,14 @@ export const userStats = async (data) => {
   const userHistory = await helper.getRT_FB("userHistory/" + data.uid);
   console.log(coinValue.val().value);
   const money = coinValue.val().value * snapshot.val().coins;
-  document.querySelector(".current-money").textContent = `$${money}`;
-  document.querySelector(".coins-value").textContent = `${
-    snapshot.val().coins
-  }`;
-  document.querySelector(".alltime-income").textContent = `$${
-    userHistory.val().totalIncome
-  }`;
+  // document.querySelector(".current-money").textContent = `$${money}`;
+  // document.querySelector(".coins-value").textContent = `${
+  //   snapshot.val().coins
+  // }`;
+  // document.querySelector(".alltime-income").textContent = `$${
+  //   userHistory.val().totalIncome
+  // }`;
+  // document.querySelector(".total-trades").textContent = `${
+  //   snapshot.val().totalTrades
+  // }`;
 };

@@ -1,14 +1,14 @@
 .preview {
   @include respond(low-phone) {
     width: 100%;
-    @include flex-placeholder(center, center, row);
+    // @include flex-placeholder(center, center, row);
     padding: 1rem 0;
   }
   &__link {
     &:link,
     &:visited {
       display: flex;
-      align-items: center;
+      // align-items: center;
       padding: 1.5rem 3.25rem;
       transition: all 0.3s;
       border-right: 1px solid #fff;

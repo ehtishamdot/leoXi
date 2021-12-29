@@ -20,21 +20,33 @@ import * as adminAuth from "./AdminAuth";
 
 //helper
 import * as helper from "../helpers";
+import * as constants from "../constants";
 
 export const controlUsers = async () => {
-  const dbRef = firebase.ref(firebase.database);
+  // const dbRef = firebase.ref(firebase.database);
 
   //getting Data
-  const querySnapshot = await firebase.get(firebase.child(dbRef, "users"));
+  // const querySnapshot = await firebase.get(firebase.child(dbRef, "users"));
   const snapshot = await helper.getRT_FB("coinValue");
 
   usersView.renderClear();
-  if (querySnapshot.exists()) {
-    console.log(model.coinsValues.coinPrice);
-    querySnapshot.forEach((doc) => {
-      if (model.userInfo.displayInfo.email != doc.val().email) {
-        usersView.generateUsersMarkup(doc.val(), snapshot.val().value);
-      }
-    });
-  }
+
+  console.log(model.coinsValues.coinPrice);
+
+  var ref = firebase.collection(firebase.db, "users");
+  const docSnap = await firebase.getDocs(ref);
+
+  docSnap.forEach((doc) => {
+    if (model.userInfo.displayInfo.email != doc.data().email) {
+      console.log(doc.data());
+      usersView.generateUsersMarkup(doc.data(), snapshot.val().value);
+    }
+  });
+
+  // querySnapshot.forEach((doc) => {
+  //   if (model.userInfo.displayInfo.email != doc.val().email) {
+  //            console.log(snapshot.val().value);
+  //     usersView.generateUsersMarkup(doc.val(), snapshot.val().value);
+  //   }
+  // });
 };

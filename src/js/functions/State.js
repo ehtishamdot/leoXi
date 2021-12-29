@@ -27,14 +27,14 @@ export const controlAuthState = async () => {
   await firebase.onAuthStateChanged(firebase.auth, (user) => {
     if (user) {
       //user data from Firebase
-      const dbRef = firebase.ref(firebase.database);
+      // const dbRef = firebase.ref(firebase.database);
       firebase
-        .get(firebase.child(dbRef, "users/" + user.uid))
+        .getDoc(firebase.doc(firebase.db, "users", user.uid))
         .then((snapshot) => {
           //checks
           if (snapshot.exists()) {
             //sends the data to the model "USERINFO"
-            model.userInfoObject(snapshot.val());
+            model.userInfoObject(snapshot.data());
           }
         })
         .then(() => {

@@ -119,3 +119,9 @@ document.querySelector(".dashboard-btn")?.addEventListener("click", () => {
   document.querySelector(".dashboard").classList.remove("hidden");
   document.querySelector(".faqs").classList.add("hidden");
 });
+
+
+setTimeout(val => {
+  document.querySelector('.loading').classList.add('hidden');
+  document.querySelector("#preloader").classList.add("hidden");
+},4000)

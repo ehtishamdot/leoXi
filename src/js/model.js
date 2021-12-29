@@ -33,3 +33,5 @@ export const newUserInfoLogin = (data) => {
     coins: 10,
   };
 };
+
+

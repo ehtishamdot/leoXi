@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- --- FONTS --- -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" sizes="76x76" href="/icon.6167a3cd.png">
+
+    <!-- --- SCSS ---  -->
+    <link rel="stylesheet" href="/index.fa02a0b5.css">
+    <!-- --- ICONS --- -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" />
+       -->
+    <style></style>
+    <script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, entry, mainEntry, parcelRequireName, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject[parcelRequireName] === 'function' &&
+    globalObject[parcelRequireName];
+
+  var cache = previousRequire.cache || {};
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof globalObject[parcelRequireName] === 'function' &&
+          globalObject[parcelRequireName];
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  Object.defineProperty(newRequire, 'root', {
+    get: function() {
+      return globalObject[parcelRequireName];
+    },
+  });
+
+  globalObject[parcelRequireName] = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (mainEntry) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(mainEntry);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"dcIGB":[function(require,module,exports) {
+var HMR_HOST = null;
+var HMR_PORT = null;
+var HMR_SECURE = false;
+var HMR_ENV_HASH = "4e5dac8afe405db7";
+module.bundle.HMR_BUNDLE_ID = "f5ed61a2db7d83dd";
+"use strict";
+function _createForOfIteratorHelper(o, allowArrayLike) {
+    var it;
+    if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+            if (it) o = it;
+            var i = 0;
+            var F = function F1() {
+            };
+            return {
+                s: F,
+                n: function n() {
+                    if (i >= o.length) return {
+                        done: true
+                    };
+                    return {
+                        done: false,
+                        value: o[i++]
+                    };
+                },
+                e: function e(_e) {
+                    throw _e;
+                },
+                f: F
+            };
+        }
+        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    var normalCompletion = true, didErr = false, err;
+    return {
+        s: function s() {
+            it = o[Symbol.iterator]();
+        },
+        n: function n() {
+            var step = it.next();
+            normalCompletion = step.done;
+            return step;
+        },
+        e: function e(_e2) {
+            didErr = true;
+            err = _e2;
+        },
+        f: function f() {
+            try {
+                if (!normalCompletion && it.return != null) it.return();
+            } finally{
+                if (didErr) throw err;
+            }
+        }
+    };
+}
+function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
+import type {
+  HMRAsset,
+  HMRMessage,
+} from '@parcel/reporter-dev-server/src/HMRServer.js';
+interface ParcelRequire {
+  (string): mixed;
+  cache: {|[string]: ParcelModule|};
+  hotData: mixed;
+  Module: any;
+  parent: ?ParcelRequire;
+  isParcelRequire: true;
+  modules: {|[string]: [Function, {|[string]: string|}]|};
+  HMR_BUNDLE_ID: string;
+  root: ParcelRequire;
+}
+interface ParcelModule {
+  hot: {|
+    data: mixed,
+    accept(cb: (Function) => void): void,
+    dispose(cb: (mixed) => void): void,
+    // accept(deps: Array<string> | string, cb: (Function) => void): void,
+    // decline(): void,
+    _acceptCallbacks: Array<(Function) => void>,
+    _disposeCallbacks: Array<(mixed) => void>,
+  |};
+}
+declare var module: {bundle: ParcelRequire, ...};
+declare var HMR_HOST: string;
+declare var HMR_PORT: string;
+declare var HMR_ENV_HASH: string;
+declare var HMR_SECURE: boolean;
+*/ var OVERLAY_ID = '__parcel__error__overlay__';
+var OldModule = module.bundle.Module;
+function Module(moduleName) {
+    OldModule.call(this, moduleName);
+    this.hot = {
+        data: module.bundle.hotData,
+        _acceptCallbacks: [],
+        _disposeCallbacks: [],
+        accept: function accept(fn) {
+            this._acceptCallbacks.push(fn || function() {
+            });
+        },
+        dispose: function dispose(fn) {
+            this._disposeCallbacks.push(fn);
+        }
+    };
+    module.bundle.hotData = undefined;
+}
+module.bundle.Module = Module;
+var checkedAssets, acceptedAssets, assetsToAccept;
+function getHostname() {
+    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
+}
+function getPort() {
+    return HMR_PORT || location.port;
+} // eslint-disable-next-line no-redeclare
+var parent = module.bundle.parent;
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+    var hostname = getHostname();
+    var port = getPort();
+    var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
+    var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
+    ws.onmessage = function(event) {
+        checkedAssets = {
+        };
+        acceptedAssets = {
+        };
+        assetsToAccept = [];
+        var data = JSON.parse(event.data);
+        if (data.type === 'update') {
+            // Remove error overlay if there is one
+            removeErrorOverlay();
+            var assets = data.assets.filter(function(asset) {
+                return asset.envHash === HMR_ENV_HASH;
+            }); // Handle HMR Update
+            var handled = assets.every(function(asset) {
+                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            });
+            if (handled) {
+                console.clear();
+                assets.forEach(function(asset) {
+                    hmrApply(module.bundle.root, asset);
+                });
+                for(var i = 0; i < assetsToAccept.length; i++){
+                    var id = assetsToAccept[i][1];
+                    if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
+                }
+            } else window.location.reload();
+        }
+        if (data.type === 'error') {
+            // Log parcel errors to console
+            var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi), _step;
+            try {
+                for(_iterator.s(); !(_step = _iterator.n()).done;){
+                    var ansiDiagnostic = _step.value;
+                    var stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                    console.error('🚨 [parcel]: ' + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
+                } // Render the fancy html overlay
+            } catch (err) {
+                _iterator.e(err);
+            } finally{
+                _iterator.f();
+            }
+            removeErrorOverlay();
+            var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
+            document.body.appendChild(overlay);
+        }
+    };
+    ws.onerror = function(e) {
+        console.error(e.message);
+    };
+    ws.onclose = function() {
+        console.warn('[parcel] 🚨 Connection to the HMR server was lost');
+    };
+}
+function removeErrorOverlay() {
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) {
+        overlay.remove();
+        console.log('[parcel] ✨ Error resolved');
+    }
+}
+function createErrorOverlay(diagnostics) {
+    var overlay = document.createElement('div');
+    overlay.id = OVERLAY_ID;
+    var errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    var _iterator2 = _createForOfIteratorHelper(diagnostics), _step2;
+    try {
+        for(_iterator2.s(); !(_step2 = _iterator2.n()).done;){
+            var diagnostic = _step2.value;
+            var stack = diagnostic.codeframe ? diagnostic.codeframe : diagnostic.stack;
+            errorHTML += "\n      <div>\n        <div style=\"font-size: 18px; font-weight: bold; margin-top: 20px;\">\n          \uD83D\uDEA8 ".concat(diagnostic.message, "\n        </div>\n        <pre>\n          ").concat(stack, "\n        </pre>\n        <div>\n          ").concat(diagnostic.hints.map(function(hint) {
+                return '<div>' + hint + '</div>';
+            }).join(''), "\n        </div>\n      </div>\n    ");
+        }
+    } catch (err) {
+        _iterator2.e(err);
+    } finally{
+        _iterator2.f();
+    }
+    errorHTML += '</div>';
+    overlay.innerHTML = errorHTML;
+    return overlay;
+}
+function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
+    var modules = bundle.modules;
+    if (!modules) return [];
+    var parents = [];
+    var k, d, dep;
+    for(k in modules)for(d in modules[k][1]){
+        dep = modules[k][1][d];
+        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
+            bundle,
+            k
+        ]);
+    }
+    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
+    return parents;
+}
+function updateLink(link) {
+    var newLink = link.cloneNode();
+    newLink.onload = function() {
+        if (link.parentNode !== null) // $FlowFixMe
+        link.parentNode.removeChild(link);
+    };
+    newLink.setAttribute('href', link.getAttribute('href').split('?')[0] + '?' + Date.now()); // $FlowFixMe
+    link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+    if (cssTimeout) return;
+    cssTimeout = setTimeout(function() {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for(var i = 0; i < links.length; i++){
+            // $FlowFixMe[incompatible-type]
+            var href = links[i].getAttribute('href');
+            var hostname = getHostname();
+            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(window.location.origin) !== 0 && !servedFromHMRServer;
+            if (!absolute) updateLink(links[i]);
+        }
+        cssTimeout = null;
+    }, 50);
+}
+function hmrApply(bundle, asset) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (asset.type === 'css') {
+        reloadCSS();
+        return;
+    }
+    var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+    if (deps) {
+        var fn = new Function('require', 'module', 'exports', asset.output);
+        modules[asset.id] = [
+            fn,
+            deps
+        ];
+    } else if (bundle.parent) hmrApply(bundle.parent, asset);
+}
+function hmrAcceptCheck(bundle, id, depsByBundle) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
+        // If we reached the root bundle without finding where the asset should go,
+        // there's nothing to do. Mark as "accepted" so we don't reload the page.
+        if (!bundle.parent) return true;
+        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
+    }
+    if (checkedAssets[id]) return;
+    checkedAssets[id] = true;
+    var cached = bundle.cache[id];
+    assetsToAccept.push([
+        bundle,
+        id
+    ]);
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) return true;
+    return getParents(module.bundle.root, id).some(function(v) {
+        return hmrAcceptCheck(v[0], v[1], null);
+    });
+}
+function hmrAcceptRun(bundle, id) {
+    var cached = bundle.cache[id];
+    bundle.hotData = {
+    };
+    if (cached && cached.hot) cached.hot.data = bundle.hotData;
+    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
+        cb(bundle.hotData);
+    });
+    delete bundle.cache[id];
+    bundle(id);
+    cached = bundle.cache[id];
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
+        var assetsToAlsoAccept = cb(function() {
+            return getParents(module.bundle.root, id);
+        });
+        if (assetsToAlsoAccept && assetsToAccept.length) // $FlowFixMe[method-unbinding]
+        assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+    });
+    acceptedAssets[id] = true;
+}
+
+},{}]},["dcIGB"], null, "parcelRequire7e89")
+
+</script>
+
+    <title>Menu</title>
+  </head>
+  <body>
+    <div class="loading">
+      <span>L</span>
+      <span>e</span>
+      <span>o</span>
+      <span>x</span>
+      <span>i</span>
+    </div>
+
+    <div id="preloader"></div>
+
+    <div class="burger">
+      <div class="burger__line burger__line1"></div>
+      <div class="burger__line burger__line2"></div>
+      <div class="burger__line burger__line3"></div>
+    </div>
+    <!-- /////////////// -->
+
+    <div class="card-back hidden">
+      <!-- // ADMIN SETTING -->
+      <div class="admin__header">
+        <h2 class="admin__header--heading">ADMIN DASHBOARD</h2>
+        <svg width="26px" height="26px" viewbox="-4 -4 24 24" style="cursor: pointer" class="admin-dashboard--cross">
+          <line x1="2" x2="14" y1="2" y2="14" stroke-linecap="round" stroke-width="2" stroke="#bec2c9"></line>
+          <line x1="2" x2="14" y1="14" y2="2" stroke-linecap="round" stroke-width="2" stroke="#bec2c9"></line>
+        </svg>
+      </div>
+
+      <div class="admin__setting"></div>
+      <!-- <div class="center-wrap" style="margin-top: 2rem">
+        <a href="#" class="btn mt-4">submit</a>
+      </div> -->
+    </div>
+
+    <!-- ////////////////// -->
+
+    <!-- ///////////////// -->
+    <!-- SIDE BAR NAV  -->
+    <nav class="nav__sidebar hidden">
+      <ul class="sidebar__items u-margin-bottom-medium">
+        <!-- LOGO -->
+        <img class="sidebar__items--icon u-margin-bottom-small" src="/icon-white.4bb07864.png" alt="">
+
+        <span class="sidebar__items--heading u-margin-bottom-small">Jump to</span>
+        <a href="/Dashboards/pages/dashboard.html" class="sidebar__items--link dashboard-btn">Price Change</a>
+        <a class="sidebar__items--link dashboard-btn">Dashboard</a>
+        <a class="sidebar__items--link faqs-btn">Faqs</a>
+        <a class="sidebar__items--link">Trade</a>
+        <ul class="admin-access--container"></ul>
+        <!-- // BREADK THE LINE // -->
+      </ul>
+      <hr class="hr-default">
+      <div class="side__btns"></div>
+    </nav>
+    <!-- SIDE BAR NAV  END -->
+
+    <!-- USER REQUEST OVERLAY -->
+    <!-- ///////////////// -->
+    <section class="request__overlay hidden">
+      <main class="card">
+        <i data-visualcompletion="css-img" class="cancel-btn" style="background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/KhfUjtpV2up.png?_nc_eui2=AeE4L0tsfOw8bXsVq4GxTAa8prKoiZDg9HemsqiJkOD0d_1O-MukB2jRH9s5drHzWyspqwOk_V39-0XDp3VNjnrl');
+            background-position: -105px -107px;
+            background-size: auto;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            display: inline-block;"></i>
+        <div class="profile">
+          <img src="/bg-pattern-card.99cb6b1a.svg" alt="Background" class="profile__background">
+          <div class="profile__data">
+            <img class="profile__photo" alt="Photo of Victor Crest">
+            <h1 class="profile__person">Loading..</h1>
+          </div>
+          <h1 class="profile__request">Enter the amount</h1>
+          <div class="number-of-people" style="border-color: rgb(38, 192, 171)">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png">
+            <form class="number-of-coins">
+              <input type="number" class="coins-count" placeholder="0" step="0.00000000000001">
+            </form>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- ///////////////// -->
+
+    <!-- BUY OVERLAY -->
+    <!-- /////////////////////// -->
+
+    <section class="request__overlay--buy hidden">
+      <main class="card">
+        <i data-visualcompletion="css-img" class="cancel-btn" style="background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/KhfUjtpV2up.png?_nc_eui2=AeE4L0tsfOw8bXsVq4GxTAa8prKoiZDg9HemsqiJkOD0d_1O-MukB2jRH9s5drHzWyspqwOk_V39-0XDp3VNjnrl');
+            background-position: -105px -107px;
+            background-size: auto;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            display: inline-block;"></i>
+        <div class="profile">
+          <img src="/bg-pattern-card.99cb6b1a.svg" alt="Background" class="profile__background">
+          <div class="profile__data">
+            <img class="profile__photo" alt="Photo of Victor Crest">
+            <h1 class="profile__person">Loading..</h1>
+          </div>
+          <h1 class="profile__request">Enter the amount</h1>
+          <div class="number-of-people" style="border-color: rgb(38, 192, 171)">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png">
+            <form class="number-of-coins">
+              <input type="number" class="coins-count" placeholder="0" step="0.00000000000001">
+            </form>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- ///////////////////// -->
+
+    <!-- COINS STATUS -->
+    <!-- ///////////////// -->
+    <!-- <section class="stat-tile" id="work">
+      <div class="stat-content">
+        <div class="tile-header">
+          <h2 class="tile-title" style="color: white">Current Price</h2>
+        </div>
+        <div class="tile-main">
+          <div class="time">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
+            <span class="overlay__coin--price"></span>
+          </div>
+          <div class="last-week">Press Click to Close</div>
+        </div>
+      </div>
+    </section> -->
+    <!-- ///////////////// -->
+
+    <!--  ///////////////// -->
+    <div class="overlay hidden"></div>
+    <div class="overlay-minor hidden"></div>
+    <div class="overlay-request hidden"></div>
+    <!--  ///////////////// -->
+
+    <!-- MAIN START  -->
+    <main class="main" style="height: 100vh">
+      <!-- CONTENT START -->
+      <content class="content">
+        <!-- NAVIGATION -->
+        <nav class="nav-top">
+          <ul class="nav__items"></ul>
+        </nav>
+        <!-- NAVIGATION END -->
+
+        <div class="dashboard hidden">
+          <!-- USERS INTERACTION AREA -->
+          <div class="dashboard__users">
+            <li class="preview tehe" data-id="KY8CspGAx9bW395H73zxB6srVI62">
+              <a class="preview__link" href="#KY8CspGAx9bW395H73zxB6srVI62" style="display: flex; justify-content: center">
+                <figure class="preview__fig">
+                  <img src="https://lh3.googleusercontent.com/a-/AOh14Ghv3GgS23hITYPGki9F4tb92suoisBmy1vkKSPwIg=s96-c" crossorigin="anonymous" alt="profile-image">
+                </figure>
+                <div style="display: flex; flex-direction: column">
+                  <div class="status__score status__score--white" style="width: 12rem">
+                    <span style="margin-right: 0.5rem">COINS</span>
+                    <span class="status__points">10</span>
+                  </div>
+                  <div style="margin-top: 1rem; font-size: 2rem; width: 12rem">
+                    <img src="https://img.icons8.com/fluency/48/000000/low-price.png">
+                    <span class="status__coin--price" style="font-weight: 500; word-wrap: break-word">50$</span>
+                  </div>
+                </div>
+              </a>
+              <div class="full-flex table__btns" style="display: flex; justify-content: center">
+                <button class="btn--small btn--small--green" style="margin-right: 1rem" data-status="1">
+                  Buy
+                </button>
+                <button class="btn--small btn--small--red sell" data-status="0">
+                  Sell
+                </button>
+              </div>
+            </li>
+          </div>
+          <!-- USERS INTERACTION AREA END -->
+
+          <!-- LIVE UPDATES -->
+          <!-- <div class="dashboard__updates">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Counts</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0" class="table">
+                <tbody class="users-request"></tbody>
+              </table>
+            </div>
+          </div> -->
+          <!-- LIVE UPDATES END-->
+        </div>
+
+        <!--  ///////////////// -->
+
+        <div class="faqs hidden" style="height: 78%;
+            display: flex;
+            justify-content: center;
+            margin-top: 8rem;">
+          <div class="position-image-box">
+            <img class="box" src="/illustration-box-desktop.91cc51e7.svg" alt="">
+
+            <img class="image-woman-mobile" src="/illustration-woman-online-mobile.0161b76f.svg" alt="">
+          </div>
+
+          <div class="container" style="overflow-y: scroll">
+            <div class="images">
+              <img class="image-shadow" src="/bg-pattern-desktop.294e1705.svg" alt="">
+              <img class="image-woman" src="/icon.6167a3cd.png" alt="">
+
+              <img class="image-shadow-mobile" src="/bg-pattern-mobile.bec61d65.svg" alt="">
+            </div>
+
+            <div class="questions-answers">
+              <h1 class="title-accordeon">FAQ</h1>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What is LeoXI?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    LeoXI is a Revoliutonary Pear to Pear exchange. Created for
+                    people who wants to earn some extra passive income, by
+                    buying and selling the LeoXI coins. LeoXI has an unique idea
+                    for investing risk free.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What return to expect when buying LeoXI coins?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    LeoXI is deflationary coin, that means that is limited. We
+                    guarantee a steady 5% daily growth of the coin price. In
+                    this case you have atleast 5% return on your investment.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i buy LeoXI coins?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    First you need to deposit some money into your personal
+                    wallet with selected crypto currency. Then you can buy the
+                    coins with your balance, from other users.
+                  </p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i withdraw my earned money?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    Go to the ,,Withdraw" Section, enter the ammount that you
+                    want to withdraw, choose your method. MAKE SURE TO ENTER THE
+                    GOOD ADRESS FOR WITHDRAW. ALL WITHDRAWS TAKE ABOUT 24 HOURS.
+                  </p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>What payment methods do you support for deposit?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>We support only cryptocurrency. BTC/USDT</p>
+                </div>
+              </div>
+              <div class="accordeon-container">
+                <div class="questions-accordeon">
+                  <p>How can i deposit money into my personal wallet?</p>
+                  <img src="/icon-arrow-down.25e196b3.svg" alt="">
+                </div>
+                <div class="answer-accordeon">
+                  <p>
+                    Go to the ,, Deposit " Section. Select you payment method,
+                    enter the ammount that you want to deposit. Take the adress
+                    and deposit. ALL DEPOSITS TAKE ABOUT 24 HOURS.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  ///////////////// -->
+      </content>
+      <!-- CONTENT END -->
+    </main>
+
+    <script src="/index.436439df.js" defer=""></script>
+  </body>
+</html>

@@ -36,7 +36,7 @@ class topNavAfterAuth extends View {
               <ul class="status__price">
                 <span><img src="https://img.icons8.com/fluency/48/000000/low-price.png"/>  Current price of the Coin is <span class="status__coin--price">${Math.abs(
                   this._coinsInfo
-                ).toFixed(2)}$</span> </span>
+                )}$</span> </span>
               </ul>
             </li>
             <!-- ITEM 2 END -->
@@ -57,7 +57,9 @@ class topNavAfterAuth extends View {
                   <span  class ="status__username">${this._userInfo.name}</span>
                   <div class="status__score status__score--green">
                   <span style="margin-right: 0.5rem">COINS</span>
-                  <span class="status__points">${this._userInfo.coins}</span>
+                  <span class="status__points">${Math.floor(
+                    this._userInfo.coins
+                  )}</span>
                   </div>
                 </div>
               </ul>

@@ -20,6 +20,7 @@ import * as state from "./State";
 
 //Helper
 import * as helper from "../helpers";
+import * as constant from "../constants";
 import AfterLoginView from "../view/AfterLoginView";
 
 export const controlLogoutAuth = async () => {
@@ -43,7 +44,9 @@ export const controlLoginAuth = async () => {
       firebase.provider
     );
 
-    const snapshot = await helper.getRT_FB("users/" + res.user.uid);
+    // const snapshot = await helper.getRT_FB("users/" + res.user.uid);
+    var ref = firebase.doc(firebase.db, "userCoins", res.user.uid);
+    const snapshot = await firebase.getDoc(ref);
 
     if (snapshot.exists()) {
       model.userInfoObject({
@@ -54,22 +57,35 @@ export const controlLoginAuth = async () => {
         coins: snapshot.val().coins,
       });
 
+      console.log(res.user.uid);
+
       // Stores users data to the user realtimeDB
-      helper.setRT_FB("users/" + res.user.uid, model.userInfo.displayInfo);
+      // helper.setRT_FB("users/" + res.user.uid, model.userInfo.displayInfo);
     } else {
       model.newUserInfoLogin(res.user);
-      console.log(model.userInfo);
+
       // Stores users data to the user realtimeDB
       helper.setRT_FB("users/" + res.user.uid, model.userInfo.displayInfo);
+      await firebase.setDoc(
+        firebase.doc(firebase.db, "users", res.user.uid),
+        model.userInfo.displayInfo
+      );
+
+      console.log(model.userInfo.displayInfo.coins);
+      await firebase.setDoc(
+        firebase.doc(firebase.db, "userCoins", res.user.uid),
+        {
+          coins: helper.encrypt(
+            constant.KEY,
+            "" + model.userInfo.displayInfo.coins
+          ),
+        }
+      );
 
       state.controlAuthState();
     }
 
     //storing data in db
-    await firebase.setDoc(
-      firebase.doc(firebase.db, "users", res.user.uid),
-      model.userInfo.displayInfo
-    );
   } catch (err) {
     console.log(err);
   }

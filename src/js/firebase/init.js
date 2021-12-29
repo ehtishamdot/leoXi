@@ -7,6 +7,10 @@ import {
   setDoc,
   doc,
   getDocs,
+  getDoc,
+  updateDoc,
+  deleteDoc,
+  deleteField,
 } from "firebase/firestore";
 
 import firebase from "firebase/app";
@@ -30,7 +34,7 @@ import {
   update,
   push,
   remove,
-  get
+  get,
 } from "firebase/database";
 
 const firebaseConfig = {
@@ -70,13 +74,17 @@ export {
   setDoc,
   doc,
   getDocs,
+  updateDoc,
+  deleteDoc,
+  deleteField,
   ref,
   set,
   child,
   update,
   push,
   remove,
-  get
+  get,
+  getDoc
 };
 
 const a = async () => {
@@ -86,7 +94,3 @@ const a = async () => {
     console.log(doc.data());
   });
 };
-
-
-
-

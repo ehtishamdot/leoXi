@@ -16,9 +16,28 @@
     <link rel="stylesheet" href="./src/sass/main.scss" />
     <!-- --- ICONS --- -->
 
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" />
+       -->
+    <style></style>
+    <script>
+      /* ===============================  Preloader page  =============================== */
+      // document.querySelector("#preloader").classList.add("isdone")
+      // document.querySelector(".loading").classList.add("isdone")
+    </script>
+
     <title>Menu</title>
   </head>
   <body>
+    <div class="loading">
+      <span>L</span>
+      <span>e</span>
+      <span>o</span>
+      <span>x</span>
+      <span>i</span>
+    </div>
+
+    <div id="preloader"></div>
+
     <div class="burger">
       <div class="burger__line burger__line1"></div>
       <div class="burger__line burger__line2"></div>
@@ -127,7 +146,12 @@
           <div class="number-of-people" style="border-color: rgb(38, 192, 171)">
             <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
             <form class="number-of-coins">
-              <input type="number" class="coins-count" placeholder="0" />
+              <input
+                type="number"
+                class="coins-count"
+                placeholder="0"
+                step="0.00000000000001"
+              />
             </form>
           </div>
         </div>
@@ -136,9 +160,54 @@
 
     <!-- ///////////////// -->
 
+    <!-- BUY OVERLAY -->
+    <!-- /////////////////////// -->
+
+    <section class="request__overlay--buy hidden">
+      <main class="card">
+        <i
+          data-visualcompletion="css-img"
+          class="cancel-btn"
+          style="
+            background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/KhfUjtpV2up.png?_nc_eui2=AeE4L0tsfOw8bXsVq4GxTAa8prKoiZDg9HemsqiJkOD0d_1O-MukB2jRH9s5drHzWyspqwOk_V39-0XDp3VNjnrl');
+            background-position: -105px -107px;
+            background-size: auto;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            display: inline-block;
+          "
+        ></i>
+        <div class="profile">
+          <img
+            src="/src/icons/bg-pattern-card.svg"
+            alt="Background"
+            class="profile__background"
+          />
+          <div class="profile__data">
+            <img class="profile__photo" alt="Photo of Victor Crest" />
+            <h1 class="profile__person">Loading..</h1>
+          </div>
+          <h1 class="profile__request">Enter the amount</h1>
+          <div class="number-of-people" style="border-color: rgb(38, 192, 171)">
+            <img src="https://img.icons8.com/fluency/48/000000/low-price.png" />
+            <form class="number-of-coins">
+              <input
+                type="number"
+                class="coins-count"
+                placeholder="0"
+                step="0.00000000000001"
+              />
+            </form>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- ///////////////////// -->
+
     <!-- COINS STATUS -->
     <!-- ///////////////// -->
-    <section class="stat-tile" id="work">
+    <!-- <section class="stat-tile" id="work">
       <div class="stat-content">
         <div class="tile-header">
           <h2 class="tile-title" style="color: white">Current Price</h2>
@@ -151,11 +220,11 @@
           <div class="last-week">Press Click to Close</div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ///////////////// -->
 
     <!--  ///////////////// -->
-    <div class="overlay"></div>
+    <div class="overlay hidden"></div>
     <div class="overlay-minor hidden"></div>
     <div class="overlay-request hidden"></div>
     <!--  ///////////////// -->
@@ -172,16 +241,65 @@
 
         <div class="dashboard hidden">
           <!-- USERS INTERACTION AREA -->
-          <div class="dashboard__users"></div>
+          <div class="dashboard__users">
+            <li class="preview tehe" data-id="KY8CspGAx9bW395H73zxB6srVI62">
+              <a
+                class="preview__link"
+                href="#KY8CspGAx9bW395H73zxB6srVI62"
+                style="display: flex; justify-content: center"
+              >
+                <figure class="preview__fig">
+                  <img
+                    src="https://lh3.googleusercontent.com/a-/AOh14Ghv3GgS23hITYPGki9F4tb92suoisBmy1vkKSPwIg=s96-c"
+                    crossorigin="anonymous"
+                    alt="profile-image"
+                  />
+                </figure>
+                <div style="display: flex; flex-direction: column">
+                  <div
+                    class="status__score status__score--white"
+                    style="width: 12rem"
+                  >
+                    <span style="margin-right: 0.5rem">COINS</span>
+                    <span class="status__points">10</span>
+                  </div>
+                  <div style="margin-top: 1rem; font-size: 2rem; width: 12rem">
+                    <img
+                      src="https://img.icons8.com/fluency/48/000000/low-price.png"
+                    />
+                    <span
+                      class="status__coin--price"
+                      style="font-weight: 500; word-wrap: break-word"
+                      >50$</span
+                    >
+                  </div>
+                </div>
+              </a>
+              <div
+                class="full-flex table__btns"
+                style="display: flex; justify-content: center"
+              >
+                <button
+                  class="btn--small btn--small--green"
+                  style="margin-right: 1rem"
+                  data-status="1"
+                >
+                  Buy
+                </button>
+                <button class="btn--small btn--small--red sell" data-status="0">
+                  Sell
+                </button>
+              </div>
+            </li>
+          </div>
           <!-- USERS INTERACTION AREA END -->
 
           <!-- LIVE UPDATES -->
-          <div class="dashboard__updates">
+          <!-- <div class="dashboard__updates">
             <div class="tbl-header">
               <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
                   <tr>
-                    <!-- <th>Code</th> -->
                     <th>Name</th>
                     <th>Counts</th>
                     <th>Status</th>
@@ -195,7 +313,7 @@
                 <tbody class="users-request"></tbody>
               </table>
             </div>
-          </div>
+          </div> -->
           <!-- LIVE UPDATES END-->
         </div>
 
@@ -224,7 +342,7 @@
             />
           </div>
 
-          <div class="container" style="overflow-y: scroll;">
+          <div class="container" style="overflow-y: scroll">
             <div class="images">
               <img
                 class="image-shadow"

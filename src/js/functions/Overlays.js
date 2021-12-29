@@ -18,8 +18,16 @@ import * as model from "../model";
 //Helpers
 import * as helper from "../helpers";
 
-export const controlReqProfileView = async (id) => {
+export const controlReqProfileView = async (id, mod) => {
   await helper.getRT_FB("notifications/" + model.userInfo.displayInfo.id);
+
+  if (mod === "sell") {
+    console.log("sel");
+  }
+
+  if (mod === "buy") {
+    console.log("buy");
+  }
 
   const snapshotUser = await helper.getRT_FB("users/" + id);
   const snapshotNoti = await helper.getRT_FB("notifications");
@@ -31,12 +39,14 @@ export const controlReqProfileView = async (id) => {
       status = true;
     }
   });
+  requestOverlayView.setting();
+  requestOverlayView.render(snapshotUser?.val(), 0, mod);
 
-  if (status) {
-    requestOverlayView.render(snapshotUser?.val());
-    requestSubmittedOverlayView.setting();
-  } else {
-    requestOverlayView.setting();
-    requestOverlayView.render(snapshotUser?.val());
-  }
+  // if (status) {
+  //   // if status true it will render the overlay and set the settings for input
+  //   requestOverlayView.render(snapshotUser?.val(), 0, mod);
+  //   requestSubmittedOverlayView.setting();
+  // } else {
+  //   // if status false it will render the overlay and disable the settings for input
+  // }
 };
